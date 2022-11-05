@@ -1,3 +1,3 @@
 # Music Share
 
-🎧 Share music links for any music streaming service
+Share music links for any music streaming service 🎧
