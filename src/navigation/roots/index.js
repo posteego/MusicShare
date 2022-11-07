@@ -1,0 +1,1 @@
+export { startMainTabs } from './setRoot';
