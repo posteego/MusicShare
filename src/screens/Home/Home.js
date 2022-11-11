@@ -53,6 +53,7 @@ const Home = ({ key }) => {
       data={flatlist_dummy}
       renderItem={renderItem}
       keyExtractor={x => x.id}
+      ListHeaderComponent={<Text>Sharing History</Text>}
     />
   );
 };
