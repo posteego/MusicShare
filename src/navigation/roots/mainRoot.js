@@ -45,7 +45,11 @@ const settingsIconSelected = Icon.getImageSourceSync(
 // TopBar
 const topBar = (title, subtitle = null, leftButtons, rightButtons) => (
   {
+    // largeTitle: {
+    //   visible: true,
+    // },
     visible: true,
+    translucent: true,
     noborder: true,
     elevation: 0,
     scrollEdgeAppearance: {
