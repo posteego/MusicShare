@@ -16,7 +16,7 @@ const Settings = ({ key }) => {
   const a = 'placeholder';
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <Text>Setup</Text>
     </View>
   );

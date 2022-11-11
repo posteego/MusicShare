@@ -19,12 +19,18 @@ export const startMainTabs = async () => {
   // set global styles
   Navigation.setDefaultOptions({
     layout: {
-      screenBackgroundColor: '#fff',
+      backgroundColor: '#fff',
+      orientation: 'portrait',
+    },
+    statusBar: {
+      backgroundColor: '#fff',
     },
     bottomTabs: {
+      // translucent: true,
+      // barStyle: 'black',
       tabsAttachMode: 'afterInitialTab',
       titleDisplayMode: 'alwaysShow',
-      // animateTabSelection: false,
+      animateTabSelection: false,
     },
     bottomTab: {
       fontSize: 12,
@@ -34,9 +40,23 @@ export const startMainTabs = async () => {
       selectedIconColor: '#000',
     },
     topBar: {
+      visible: true,
+      noborder: true,
+      elevation: 0,
+      scrollEdgeAppearance: {
+        noBorder: true,
+      },
+      background: {
+        color: '#fff',
+        // translucent: true,
+      },
       title: {
         fontSize: 20,
         color: '#000',
+      },
+      subtitle: {
+        color: '#495057',
+        fontSize: 14,
       },
     },
   });

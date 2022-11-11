@@ -3,7 +3,6 @@ import UI_TABS, { APP_TABS } from 'constants/app-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const getTabIcon = (tabName, selected) => {
-  console.log(tabName, selected);
   switch (tabName) {
     case UI_TABS.HOME:
       return selected ? 'headset' : 'headset-outline';
@@ -48,28 +47,14 @@ const topBar = (title, subtitle = null, leftButtons, rightButtons) => (
     // largeTitle: {
     //   visible: true,
     // },
-    visible: true,
-    translucent: true,
-    noborder: true,
-    elevation: 0,
-    scrollEdgeAppearance: {
-      noBorder: true,
-    },
-    background: {
-      color: '#fff',
-    },
     ...title && {
       title: {
         text: title,
-        color: '#000',
-        fontSize: 20,
       }
     },
     ...subtitle && {
       subtitle: {
         text: subtitle,
-        color: '#495057',
-        fontSize: 14,
       },
     },
     leftButtons,
