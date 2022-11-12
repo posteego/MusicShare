@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { string } from 'prop-types';
 import {
-  FlatList, View, Text, Image, Pressable,
+  FlatList, View, Text, Image, Pressable, Modal,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Clipboard from '@react-native-clipboard/clipboard';
@@ -41,85 +41,18 @@ const PLATFORMS = [
 
 const Home = ({ key }) => {
   const [pastedUrl, setPastedUrl] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
   const { data, loading, error } = useSongLink(pastedUrl);
 
-  const spotifyUrl = 'https://open.spotify.com/track/5KXvG7j3Uvs9yyORfjxPv8?si=bb59e3127ef64395';
+  useEffect(() => {
+    if (data !== null) setModalVisible(true);
+  }, [data]);
 
-  const googleUrl = 'https://google.com';
+  // const spotifyUrl = 'https://open.spotify.com/track/5KXvG7j3Uvs9yyORfjxPv8?si=bb59e3127ef64395';
 
-  // const {
-  //   data, loading, error,
-  // } = useSongLink(spotifyUrl);
-
-  // const {
-  //   type, artistName, title,
-  //   thumbnailUrl, originalService
-  // } = data;
+  // const googleUrl = 'https://google.com';
 
   const flatlist_dummy = [
-    // {
-    //   id: 0,
-    //   type,
-    //   title,
-    //   artistName,
-    //   musicService: originalService,
-    //   thumbnailUrl,
-    //   timestamp: '2h ago',
-    // },
-    // {
-    //   id: 1,
-    //   type,
-    //   title,
-    //   artistName,
-    //   musicService: originalService,
-    //   thumbnailUrl,
-    //   timestamp: '2h ago',
-    // },
-    // {
-    //   id: 2,
-    //   type,
-    //   title,
-    //   artistName,
-    //   musicService: originalService,
-    //   thumbnailUrl,
-    //   timestamp: '2h ago',
-    // },
-    // {
-    //   id: 3,
-    //   type,
-    //   title,
-    //   artistName,
-    //   musicService: originalService,
-    //   thumbnailUrl,
-    //   timestamp: '2h ago',
-    // },
-    // {
-    //   id: 4,
-    //   type,
-    //   title,
-    //   artistName,
-    //   musicService: originalService,
-    //   thumbnailUrl,
-    //   timestamp: '2h ago',
-    // },
-    // {
-    //   id: 5,
-    //   type,
-    //   title,
-    //   artistName,
-    //   musicService: originalService,
-    //   thumbnailUrl,
-    //   timestamp: '2h ago',
-    // },
-    // {
-    //   id: 6,
-    //   type,
-    //   title,
-    //   artistName,
-    //   musicService: originalService,
-    //   thumbnailUrl,
-    //   timestamp: '2h ago',
-    // },
     {
       id: 0,
       type: 'SONG',
@@ -149,6 +82,16 @@ const Home = ({ key }) => {
     },
   ];
 
+  const getUrl = async () => {
+    try {
+      const clipboardUrl = await Clipboard.getString();
+      if (await isUrl(clipboardUrl)) setPastedUrl(clipboardUrl);
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  };
+
   const renderItem = ({ item }) => (
     <View style={styles.songCard}>
       <View>
@@ -173,18 +116,20 @@ const Home = ({ key }) => {
     </View>
   );
 
-  const getUrl = async () => {
-    try {
-      const clipboardUrl = await Clipboard.getString();
-      if (await isUrl(clipboardUrl)) setPastedUrl(clipboardUrl);
-    } catch (e) {
-      console.log(e);
-      return null;
-    }
-  };
-
   return (
     <View style={styles.container}>
+      <Modal
+        animationType="slide"
+        transparent
+        visible={modalVisible}
+        onRequestClose={() => { setModalVisible(false); }}
+      >
+        <View style={{ flex: 1, justifyContent: 'center' }}>
+          <Text>
+            {data?.platformsAvailable}
+          </Text>
+        </View>
+      </Modal>
       <FlatList
         data={flatlist_dummy}
         renderItem={renderItem}

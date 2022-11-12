@@ -5,7 +5,7 @@ const ERROR_CODES = [
 ];
 
 const useSongLink = (url) => {
-  const [songData, setSongData] = useState({});
+  const [songData, setSongData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const apiUrl = new URL('https://api.song.link/v1-alpha.1/links');
