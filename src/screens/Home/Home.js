@@ -1,9 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { string } from 'prop-types';
 import {
-  FlatList, View, Text,
+  FlatList, View, Text, Image, Pressable,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import Clipboard from '@react-native-clipboard/clipboard';
+import isUrl from 'validator/lib/isURL';
 import { useSongLink } from 'hooks';
+import styles from './styles';
 
 const propTypes = {
   key: string,
@@ -36,71 +40,172 @@ const PLATFORMS = [
 ];
 
 const Home = ({ key }) => {
-  const _a = 'placeholder';
+  const [pastedUrl, setPastedUrl] = useState('');
+  const { data, loading, error } = useSongLink(pastedUrl);
 
   const spotifyUrl = 'https://open.spotify.com/track/5KXvG7j3Uvs9yyORfjxPv8?si=bb59e3127ef64395';
 
-  const {
-    data, loading, error,
-  } = useSongLink(spotifyUrl);
+  const googleUrl = 'https://google.com';
 
-  const {
-    type, artistName, title
-  } = data;
+  // const {
+  //   data, loading, error,
+  // } = useSongLink(spotifyUrl);
+
+  // const {
+  //   type, artistName, title,
+  //   thumbnailUrl, originalService
+  // } = data;
 
   const flatlist_dummy = [
-    {
-      id: 0,
-      type,
-      title,
-      artistName,
-      musicService: 'Spotify',
-      timestamp: 'a few minutes ago',
-    },
     // {
     //   id: 0,
-    //   type: 'song',
-    //   title: 'title',
-    //   artistName: 'name',
-    //   musicService: 'Spotify',
-    //   timestamp: 'a few minutes ago',
+    //   type,
+    //   title,
+    //   artistName,
+    //   musicService: originalService,
+    //   thumbnailUrl,
+    //   timestamp: '2h ago',
+    // },
+    // {
+    //   id: 1,
+    //   type,
+    //   title,
+    //   artistName,
+    //   musicService: originalService,
+    //   thumbnailUrl,
+    //   timestamp: '2h ago',
+    // },
+    // {
+    //   id: 2,
+    //   type,
+    //   title,
+    //   artistName,
+    //   musicService: originalService,
+    //   thumbnailUrl,
+    //   timestamp: '2h ago',
+    // },
+    // {
+    //   id: 3,
+    //   type,
+    //   title,
+    //   artistName,
+    //   musicService: originalService,
+    //   thumbnailUrl,
+    //   timestamp: '2h ago',
+    // },
+    // {
+    //   id: 4,
+    //   type,
+    //   title,
+    //   artistName,
+    //   musicService: originalService,
+    //   thumbnailUrl,
+    //   timestamp: '2h ago',
+    // },
+    // {
+    //   id: 5,
+    //   type,
+    //   title,
+    //   artistName,
+    //   musicService: originalService,
+    //   thumbnailUrl,
+    //   timestamp: '2h ago',
+    // },
+    // {
+    //   id: 6,
+    //   type,
+    //   title,
+    //   artistName,
+    //   musicService: originalService,
+    //   thumbnailUrl,
+    //   timestamp: '2h ago',
     // },
     {
+      id: 0,
+      type: 'SONG',
+      title: 'Song Name',
+      artistName: 'Artist Name',
+      musicService: 'Spotify',
+      thumbnailUrl: 'https://dummyimage.com/80/000/fff',
+      timestamp: 'a few seconds ago',
+    },
+    {
       id: 1,
-      type: 'song',
+      type: 'SONG',
       title: 'Song Name',
       artistName: 'Artist Name',
       musicService: 'Apple Music',
+      thumbnailUrl: 'https://via.placeholder.com/80',
       timestamp: 'a few minutes ago',
     },
     {
       id: 2,
-      type: 'song',
+      type: 'SONG',
       title: 'Song Name',
       artistName: 'Artist Name',
       musicService: 'Youtube',
+      thumbnailUrl: 'https://dummyimage.com/80/000/fff',
       timestamp: '2h ago',
     },
   ];
 
   const renderItem = ({ item }) => (
-    <View style={{ backgroundColor: '#A1223f' }}>
-      <Text>{item.type}</Text>
-      <Text>{item.title}</Text>
-      <Text>{item.artistName}</Text>
-      <Text>{item.timestamp}</Text>
-      <Text>{item.musicService}</Text>
+    <View style={styles.songCard}>
+      <View>
+        <Image
+          style={styles.coverArt}
+          source={{
+            uri: item.thumbnailUrl,
+            width: 80,
+            height: 80,
+          }}
+        />
+      </View>
+      <View style={styles.songCardRight}>
+        <Text style={styles.timestamp}>{item.timestamp}</Text>
+        <Text style={styles.songTitle}>{item.title}</Text>
+        <Text style={styles.artistName}>{item.artistName}</Text>
+        <View style={styles.cardLabelContainer}>
+          <Text style={styles.cardLabel}>{item.type}</Text>
+          <Text style={styles.cardLabel}>{item.musicService}</Text>
+        </View>
+      </View>
     </View>
   );
 
+  const getUrl = async () => {
+    try {
+      const clipboardUrl = await Clipboard.getString();
+      if (await isUrl(clipboardUrl)) setPastedUrl(clipboardUrl);
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  };
+
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       <FlatList
         data={flatlist_dummy}
         renderItem={renderItem}
         keyExtractor={x => x.id}
-        ListHeaderComponent={<Text>Sharing History</Text>}
+        ListHeaderComponent={<Text style={{ fontWeight: 'bold', fontSize: 20 }}>Sharing History</Text>}
+        contentContainerStyle={styles.flatListContainer}
+        ItemSeparatorComponent={<View style={{ height: 1, width: '100%', backgroundColor: '#CACACA' }} />}
       />
+      <Pressable
+        onPress={getUrl}
+        style={({ pressed }) => [styles.shareButton(pressed)]}
+        android_ripple={styles.androidRipple}
+      >
+        {({ pressed }) => (
+          <Icon
+            name="duplicate-outline"
+            size={28}
+            color={pressed ? 'black' : 'white'}
+          />
+        )}
+      </Pressable>
     </View>
   );
 };

@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 
-const useSongLink = (url, provider) => {
-  const [loading, setLoading] = useState(false);
-  const [songData, setSongData] = useState({});
-  const [error, setError] = useState (null);
+const ERROR_CODES = [
+  'could_not_resolve_entity', // statusCode: 400
+];
 
+const useSongLink = (url) => {
+  const [songData, setSongData] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const apiUrl = new URL('https://api.song.link/v1-alpha.1/links');
   const searchParams = {
     url: encodeURIComponent(url),
@@ -14,17 +17,20 @@ const useSongLink = (url, provider) => {
   apiUrl.searchParams.append('url', searchParams.url);
 
   const getMetadata = (data) => {
+    const originalService = data.entityUniqueId.split('_')[0];
     const entities = data.entitiesByUniqueId;
     // grab first set of data
     const arbitraryService = Object.keys(entities)[0];
     const serviceData = entities[arbitraryService];
     const serviceName = serviceData.apiProvider;
-    const type = serviceData.type;
+    const type = serviceData.type.toUpperCase();
     const title = serviceData.title;
     const artistName = serviceData.artistName;
     const thumbnailUrl = serviceData.thumbnailUrl;
     const thumbnailWidth = serviceData.thumbnailWidth;
     const thumbnailHeight = serviceData.thumbnailHeight;
+
+    const platformsAvailable = Object.keys(data.linksByPlatform);
 
     console.log(`${type} data provided by`, serviceName);
     return {
@@ -34,6 +40,8 @@ const useSongLink = (url, provider) => {
       thumbnailUrl,
       thumbnailWidth,
       thumbnailHeight,
+      originalService,
+      platformsAvailable,
     }
   };
 
@@ -47,8 +55,8 @@ const useSongLink = (url, provider) => {
         },
       });
       const json = await response.json();
+      if (json.statusCode === 400) throw json.code;
       const metadata = getMetadata(json);
-      const platformsAvailable = Object.keys(json.linksByPlatform);
       setSongData(metadata);
     } catch (err) {
       setError(err);
@@ -57,13 +65,15 @@ const useSongLink = (url, provider) => {
   };
 
   // [] - didMount
-  // return () => {}, willUnmount
-  // no [] = didUpdate
+  // return () => {} - willUnmount
+  // no [] - didUpdate
   useEffect(() => {
-    setLoading(true);
-    fetchLinks();
-    setLoading(false);
-  }, []);
+    if (url !== '') {
+      setLoading(true);
+      fetchLinks();
+      setLoading(false);
+    }
+  }, [url]);
 
   return {
     data: songData,
