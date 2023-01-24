@@ -40,7 +40,7 @@ const PLATFORMS = [
 ];
 
 const Home = ({ key }) => {
-  const [pastedUrl, setPastedUrl] = useState('');
+  const [pastedUrl, setPastedUrl] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const { data, loading, error } = useSongLink(pastedUrl);
 

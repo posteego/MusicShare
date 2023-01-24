@@ -68,11 +68,10 @@ const useSongLink = (url) => {
   // return () => {} - willUnmount
   // no [] - didUpdate
   useEffect(() => {
-    if (url !== '') {
-      setLoading(true);
-      fetchLinks();
-      setLoading(false);
-    }
+    if (!url) return;
+    setLoading(true);
+    fetchLinks();
+    setLoading(false);
   }, [url]);
 
   return {
