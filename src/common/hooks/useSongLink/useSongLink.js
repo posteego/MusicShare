@@ -32,7 +32,7 @@ const useSongLink = (url) => {
 
     const platformsAvailable = Object.keys(data.linksByPlatform);
 
-    console.log(`${type} data provided by`, serviceName);
+    console.log(`${type} data provided by`, originalService);
     return {
       type,
       title,
@@ -68,7 +68,10 @@ const useSongLink = (url) => {
   // return () => {} - willUnmount
   // no [] - didUpdate
   useEffect(() => {
-    if (!url) return;
+    if (!url) {
+      console.log("no URL found.");
+      return;
+    }
     setLoading(true);
     fetchLinks();
     setLoading(false);

@@ -40,7 +40,7 @@ export default StyleSheet.create({
   shareButton: (pressed) => ({
     position: 'absolute',
     alignSelf: 'center',
-    bottom: 20,
+    bottom: 10,
     backgroundColor: pressed ? 'white' : 'black',
     height: 50,
     width: 50,
@@ -49,9 +49,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 30,
     shadowColor: 'black',
-    shadowOffset: { height: 0, width: 0 },
-    shadowRadius: 2,
-    shadowOpacity: 1,
+    shadowOffset: { height: 2, width: 2 },
+    shadowRadius: 3,
+    shadowOpacity: pressed ? 0 : 0.5,
   }),
   androidRipple: {
     color: '#a0a0a0',

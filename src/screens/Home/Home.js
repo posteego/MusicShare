@@ -46,6 +46,7 @@ const Home = ({ key }) => {
 
   useEffect(() => {
     if (data !== null) setModalVisible(true);
+    else setModalVisible(false);
   }, [data]);
 
   // const spotifyUrl = 'https://open.spotify.com/track/5KXvG7j3Uvs9yyORfjxPv8?si=bb59e3127ef64395';

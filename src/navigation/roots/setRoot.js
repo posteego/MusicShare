@@ -31,6 +31,7 @@ export const startMainTabs = async () => {
       tabsAttachMode: 'afterInitialTab',
       titleDisplayMode: 'alwaysShow',
       animateTabSelection: false,
+      hideShadow: true, // removes border from bottom tab bar
     },
     bottomTab: {
       fontSize: 12,
