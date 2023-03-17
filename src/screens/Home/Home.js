@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { string } from 'prop-types';
 import {
-  FlatList, View, Text, Image, Pressable, Modal,
+  FlatList, View, Text, Image, Pressable, Modal, TouchableOpacity, ScrollView,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Clipboard from '@react-native-clipboard/clipboard';
@@ -18,40 +18,72 @@ const defaultProps = {
 };
 
 const PLATFORMS = [
-  'amazonStore', // not found
-  'amazonMusic', // not found
-  'spinrilla',   // not found
-  'audius',      // not found
-  'audiomack',
-  'anghami',
-  'boomplay',
-  'deezer',
+  // 'spotify',
   'appleMusic',
-  'itunes',
-  'napster',
-  'pandora',
-  'soundcloud',
-  'tidal',
-  'yandex',
   'youtube',
   'youtubeMusic',
-  'spotify',
-  ''
+  // 'pandora',
+  // 'deezer',
+  // 'tidal',
+  'amazonMusic',
+  // 'soundcloud',
+  // 'napster',
+  // 'yandex',
+  // 'spinrilla',
+  // 'audius',
+  'itunes',
+  'googleStore',
+  'amazonStore',
 ];
+
+const platformIcons = {
+  // spotify: 'logo-spotify',
+  appleMusic: 'logo-apple',
+  youtube: 'logo-youtube',
+  youtubeMusic: 'logo-youtube',
+  // pandora: 'logo-pandora',
+  // deezer: 'logo-deezer',
+  // tidal: 'logo-tidal',
+  amazonMusic: 'logo-amazon',
+  // soundcloud: 'logo-soundcloud',
+  // napster: 'logo-napster',
+  // yandex: 'logo-yandex',
+  // spinrilla: 'logo-spinrilla',
+  // audius: 'logo-audius',
+  itunes: 'logo-apple',
+  googleStore: 'logo-google-playstore',
+  amazonStore: 'logo-amazon',
+};
 
 const Home = ({ key }) => {
   const [pastedUrl, setPastedUrl] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
-  const { data, loading, error } = useSongLink(pastedUrl);
+  const [selectedPlatform, setSelectedPlatform] = useState(null);
+  const { data, loading, error, requestFetch } = useSongLink(pastedUrl, selectedPlatform);
+
+  // useEffect(() => {
+  //   if (pastedUrl) setModalVisible(true);
+  //   else setModalVisible(false);
+  // }, [pastedUrl]);
+  useEffect(() => {
+    if (pastedUrl && selectedPlatform) {
+      requestFetch();
+      setSelectedPlatform(null);
+    }
+  }, [pastedUrl, selectedPlatform]);
 
   useEffect(() => {
-    if (data !== null) setModalVisible(true);
+    if (pastedUrl) setModalVisible(true);
     else setModalVisible(false);
+  }, [pastedUrl]);
+
+  useEffect(() => {
+    if (data) {
+      console.log({ data });
+      Clipboard.setString(data);
+      alert('URL copied to clipboard!');
+    }
   }, [data]);
-
-  // const spotifyUrl = 'https://open.spotify.com/track/5KXvG7j3Uvs9yyORfjxPv8?si=bb59e3127ef64395';
-
-  // const googleUrl = 'https://google.com';
 
   const flatlist_dummy = [
     {
@@ -93,6 +125,15 @@ const Home = ({ key }) => {
     }
   };
 
+  const handleNewShare = async () => {
+    getUrl();
+  };
+
+  const handlePlatformSelect = async (platform) => {
+    setSelectedPlatform(platform);
+    setModalVisible(false);
+  };
+
   const renderItem = ({ item }) => (
     <View style={styles.songCard}>
       <View>
@@ -117,6 +158,29 @@ const Home = ({ key }) => {
     </View>
   );
 
+  const renderPlatform = (platform) => (
+    <TouchableOpacity key={platform} style={styles.platformContainer} onPress={() => handlePlatformSelect(platform)}>
+      <Icon name={platformIcons[platform]} size={48} style={styles.platformIcon} />
+      <Text style={styles.platformText}>{platform}</Text>
+    </TouchableOpacity>
+  );
+
+  // const getUrl = async () => {
+  //   try {
+  //     const clipboardUrl = await Clipboard.getString();
+  //     if (await isUrl(clipboardUrl)) setPastedUrl(clipboardUrl);
+  //   } catch (e) {
+  //     console.log(e);
+  //     return null;
+  //   }
+  // };
+  // const handleNewShare = () => {
+  //   getUrl();
+  //   // toggle modal to select platform (selectedPlatform) from list of PLATFORMS
+  //   requestFetch();
+  // }
+
+
   return (
     <View style={styles.container}>
       <Modal
@@ -125,10 +189,10 @@ const Home = ({ key }) => {
         visible={modalVisible}
         onRequestClose={() => { setModalVisible(false); }}
       >
-        <View style={{ flex: 1, justifyContent: 'center' }}>
-          <Text>
-            {data?.platformsAvailable}
-          </Text>
+        <View style={styles.modalBackground}>
+          <View style={styles.modalContent}>
+            {PLATFORMS.map(renderPlatform)}
+          </View>
         </View>
       </Modal>
       <FlatList
@@ -140,7 +204,7 @@ const Home = ({ key }) => {
         ItemSeparatorComponent={<View style={{ height: 1, width: '100%', backgroundColor: '#CACACA' }} />}
       />
       <Pressable
-        onPress={getUrl}
+        onPress={handleNewShare}
         style={({ pressed }) => [styles.shareButton(pressed)]}
         android_ripple={styles.androidRipple}
       >
@@ -153,6 +217,41 @@ const Home = ({ key }) => {
         )}
       </Pressable>
     </View>
+    // <View style={styles.container}>
+    //   <Modal
+    //     animationType="slide"
+    //     transparent
+    //     visible={modalVisible}
+    //     onRequestClose={() => { setModalVisible(false); }}
+    //   >
+    //     <View style={{ flex: 1, justifyContent: 'center' }}>
+    //       <Text>
+    //         {/* list of PLATFORMS */}hello
+    //       </Text>
+    //     </View>
+    //   </Modal>
+    //   <FlatList
+    //     data={flatlist_dummy}
+    //     renderItem={renderItem}
+    //     keyExtractor={x => x.id}
+    //     ListHeaderComponent={<Text style={{ fontWeight: 'bold', fontSize: 20 }}>Sharing History</Text>}
+    //     contentContainerStyle={styles.flatListContainer}
+    //     ItemSeparatorComponent={<View style={{ height: 1, width: '100%', backgroundColor: '#CACACA' }} />}
+    //   />
+    //   <Pressable
+    //     onPress={handleNewShare}
+    //     style={({ pressed }) => [styles.shareButton(pressed)]}
+    //     android_ripple={styles.androidRipple}
+    //   >
+    //     {({ pressed }) => (
+    //       <Icon
+    //         name="duplicate-outline"
+    //         size={28}
+    //         color={pressed ? 'black' : 'white'}
+    //       />
+    //     )}
+    //   </Pressable>
+    // </View>
   );
 };
 

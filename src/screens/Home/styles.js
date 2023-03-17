@@ -58,4 +58,33 @@ export default StyleSheet.create({
     borderless: true,
     radius: 25,
   },
+  modalBackground: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContent: {
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 20,
+    margin: 20,
+  },
+  platformContainer: {
+    width: '50%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 10,
+  },
+  platformIcon: {
+    marginBottom: 5,
+  },
+  platformText: {
+    fontSize: 14,
+    textAlign: 'center',
+  },
 });
