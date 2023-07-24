@@ -7,7 +7,7 @@ const getTabIcon = (tabName, selected) => {
     case UI_TABS.HOME:
       return selected ? 'headset' : 'headset-outline';
     case UI_TABS.SETTINGS:
-      return selected ? 'build' : 'build-outline';
+      return selected ? 'options' : 'options-outline';
     default:
       return;
   }
