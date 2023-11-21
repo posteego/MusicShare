@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Clipboard from '@react-native-clipboard/clipboard';
 import isUrl from 'validator/lib/isURL';
 import { useSongLink } from 'hooks';
+import { useSongStore } from 'stores';
 import styles from './styles';
 
 const propTypes = {
@@ -61,6 +62,9 @@ const Home_Preview = ({ key }) => {
   const [selectedPlatform, setSelectedPlatform] = useState(null);
   const { data, loading, error, requestFetch } = useSongLink(pastedUrl, selectedPlatform);
 
+  const {lastSongShared, updateSong, removeSong } = useSongStore();
+
+  console.log({ lastSongShared });
   useEffect(() => {
     if (pastedUrl && selectedPlatform) {
       requestFetch();
