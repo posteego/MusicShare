@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Clipboard from '@react-native-clipboard/clipboard';
 import isUrl from 'validator/lib/isURL';
 import { useSongLink } from 'hooks';
-import { useSongStore } from 'stores';
+import { zustandStorage } from 'stores';
 import styles from './styles';
 
 const propTypes = {
@@ -62,13 +62,11 @@ const Home_Preview = ({ key }) => {
   const [selectedPlatform, setSelectedPlatform] = useState(null);
   const { data, loading, error, requestFetch } = useSongLink(pastedUrl, selectedPlatform);
 
-  const lastSongShared = useSongStore(state => state.lastSongShared);
-  const { updateSong, removeSong } = useSongStore();
+  const lastSongUrl = zustandStorage.getItem('lastSongUrl');
 
   useEffect(() => {
     if (pastedUrl && selectedPlatform) {
       requestFetch();
-      updateSong(pastedUrl);
       setSelectedPlatform(null);
     }
   }, [pastedUrl, selectedPlatform]);
@@ -129,7 +127,7 @@ const Home_Preview = ({ key }) => {
       {/* Only showing the last shared song. If none, show instructions */}
       <View style={styles.container}>
         <Text>Here lies a song you shared 🗿</Text>
-        <Text>{lastSongShared}</Text>
+        <Text>{lastSongUrl}</Text>
       </View>
       <Pressable
         onPress={handleNewShare}

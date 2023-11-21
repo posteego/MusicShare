@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { zustandStorage } from 'stores';
 
 const ERROR_CODES = [
   'could_not_resolve_entity', // statusCode: 400
@@ -27,6 +28,7 @@ const useSongLink = (url, selectedPlatform) => {
       if (response.ok) {
         console.log(response.url);
         setNewLink(response.url);
+        zustandStorage.setItem('lastSongUrl', response.url);
       }
     } catch (err) {
       setError(err);
