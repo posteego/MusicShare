@@ -62,12 +62,13 @@ const Home_Preview = ({ key }) => {
   const [selectedPlatform, setSelectedPlatform] = useState(null);
   const { data, loading, error, requestFetch } = useSongLink(pastedUrl, selectedPlatform);
 
-  const {lastSongShared, updateSong, removeSong } = useSongStore();
+  const lastSongShared = useSongStore(state => state.lastSongShared);
+  const { updateSong, removeSong } = useSongStore();
 
-  console.log({ lastSongShared });
   useEffect(() => {
     if (pastedUrl && selectedPlatform) {
       requestFetch();
+      updateSong(pastedUrl);
       setSelectedPlatform(null);
     }
   }, [pastedUrl, selectedPlatform]);
@@ -128,6 +129,7 @@ const Home_Preview = ({ key }) => {
       {/* Only showing the last shared song. If none, show instructions */}
       <View style={styles.container}>
         <Text>Here lies a song you shared 🗿</Text>
+        <Text>{lastSongShared}</Text>
       </View>
       <Pressable
         onPress={handleNewShare}

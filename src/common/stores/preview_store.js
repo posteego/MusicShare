@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from 'zustand/middleware';
 
-export const useSongStore = create(
+export default useSongStore = create(
   persist(
     (get, set) => ({
       lastSongShared: '',
@@ -10,7 +10,17 @@ export const useSongStore = create(
     }),
     {
       name: 'song-storage', // must be unique
-      storage: createJSONStorage(() => localStorage), // default
+      storage: createJSONStorage(() => AsyncStorage), // default is localStorage
+      onRehydrateStorage: (state) => {
+        console.log("rehydrating");
+        return (state, err) => {
+          if (err) {
+            console.log('error during rehydration', err);
+          } else {
+            console.log('hydration finished');
+          }
+        };
+      },
     },
   ),
 );
