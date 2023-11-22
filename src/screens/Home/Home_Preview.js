@@ -60,21 +60,29 @@ const Home_Preview = ({ key }) => {
   const [pastedUrl, setPastedUrl] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedPlatform, setSelectedPlatform] = useState(null);
-  const { data, loading, error, requestFetch } = useSongLink(pastedUrl, selectedPlatform);
+  const { data, loading, error, requestFetch } = useSongLink(pastedUrl);
 
-  const lastSongUrl = zustandStorage.getItem('lastSongUrl');
+  // song data
+  let songUrl = zustandStorage.getItem('lastSongUrl');
+  let songName = zustandStorage.getItem('lastSongName');
+  let artistName = zustandStorage.getItem('lastSongArtist');
+  let convertedTo = zustandStorage.getItem('lastSongConversion');
+  let thumbnail = zustandStorage.getItem('lastSongThumbnail');
+  let origin = zustandStorage.getItem('lastSongOrigin');
+  let songType = zustandStorage.getItem('lastSongType');
+  let platformsAvailable = zustandStorage.getItem('platformsAvailable');
 
   useEffect(() => {
-    if (pastedUrl && selectedPlatform) {
+    if (pastedUrl) {
       requestFetch();
-      setSelectedPlatform(null);
+      // setSelectedPlatform(null);
     }
-  }, [pastedUrl, selectedPlatform]);
-
-  useEffect(() => {
-    if (pastedUrl) setModalVisible(true);
-    else setModalVisible(false);
   }, [pastedUrl]);
+
+  // useEffect(() => {
+  //   if (pastedUrl) setModalVisible(true);
+  //   else setModalVisible(false);
+  // }, [pastedUrl]);
 
   useEffect(() => {
     if (data) {
@@ -112,22 +120,23 @@ const Home_Preview = ({ key }) => {
 
   return (
     <View style={styles.container}>
-      <Modal
-        animationType="slide"
-        transparent
-        visible={modalVisible}
-        onRequestClose={() => { setModalVisible(false); }}
-      >
-        <View style={styles.modalBackground}>
-          <View style={styles.modalContent}>
-            {PLATFORMS.map(renderPlatform)}
-          </View>
-        </View>
-      </Modal>
       {/* Only showing the last shared song. If none, show instructions */}
       <View style={styles.container}>
         <Text>Here lies a song you shared 🗿</Text>
-        <Text>{lastSongUrl}</Text>
+        <Image
+          style={styles.coverArt}
+          source={{
+            uri: thumbnail,
+            width: 200,
+            height: 200,
+          }}
+        />
+        <Text>{songType}</Text>
+        <Text>{songName}</Text>
+        <Text>{artistName}</Text>
+        <Text>{origin}</Text>
+        <Text>{convertedTo}</Text>
+        <Text>{platformsAvailable}</Text>
       </View>
       <Pressable
         onPress={handleNewShare}

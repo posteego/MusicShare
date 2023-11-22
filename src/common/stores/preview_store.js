@@ -6,9 +6,13 @@ export default useSongStore = create(
   persist(
     () => ({
       lastSongUrl: null,
+      lastSongOrigin: null,
+      lastSongType: null,
       lastSongName: null,
       lastSongArtist: null,
+      lastSongThumbnail: null,
       lastSongConversion: null,
+      platformsAvailable: null,
     }),
     {
       name: 'song-storage', // must be unique
