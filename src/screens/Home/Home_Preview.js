@@ -8,6 +8,7 @@ import Clipboard from '@react-native-clipboard/clipboard';
 import isUrl from 'validator/lib/isURL';
 import { useSongLink } from 'hooks';
 import { zustandStorage } from 'stores';
+import PLATFORMS from 'constants/platform-enum';
 import styles from './styles';
 
 const propTypes = {
@@ -18,24 +19,24 @@ const defaultProps = {
   key: null,
 };
 
-const PLATFORMS = [
-  // 'spotify',
-  'appleMusic',
-  'youtube',
-  'youtubeMusic',
-  // 'pandora',
-  // 'deezer',
-  // 'tidal',
-  'amazonMusic',
-  // 'soundcloud',
-  // 'napster',
-  // 'yandex',
-  // 'spinrilla',
-  // 'audius',
-  'itunes',
-  'googleStore',
-  'amazonStore',
-];
+// const PLATFORMS = [
+//   // 'spotify',
+//   'appleMusic',
+//   'youtube',
+//   'youtubeMusic',
+//   // 'pandora',
+//   // 'deezer',
+//   // 'tidal',
+//   'amazonMusic',
+//   // 'soundcloud',
+//   // 'napster',
+//   // 'yandex',
+//   // 'spinrilla',
+//   // 'audius',
+//   'itunes',
+//   'googleStore',
+//   'amazonStore',
+// ];
 
 const platformIcons = {
   // spotify: 'logo-spotify',
@@ -63,14 +64,14 @@ const Home_Preview = ({ key }) => {
   const { data, loading, error, requestFetch } = useSongLink(pastedUrl);
 
   // song data
-  let songUrl = zustandStorage.getItem('lastSongUrl');
-  let songName = zustandStorage.getItem('lastSongName');
-  let artistName = zustandStorage.getItem('lastSongArtist');
-  let convertedTo = zustandStorage.getItem('lastSongConversion');
-  let thumbnail = zustandStorage.getItem('lastSongThumbnail');
-  let origin = zustandStorage.getItem('lastSongOrigin');
-  let songType = zustandStorage.getItem('lastSongType');
-  let platformsAvailable = zustandStorage.getItem('platformsAvailable');
+  const songUrl = zustandStorage.getItem('lastSongUrl');
+  const songName = zustandStorage.getItem('lastSongName');
+  const artistName = zustandStorage.getItem('lastSongArtist');
+  const convertedTo = zustandStorage.getItem('lastSongConversion');
+  const thumbnail = zustandStorage.getItem('lastSongThumbnail');
+  const origin = zustandStorage.getItem('lastSongOrigin');
+  const songType = zustandStorage.getItem('lastSongType');
+  const platformsAvailable = JSON.parse(zustandStorage.getItem('platformsAvailable')) ?? null;
 
   useEffect(() => {
     if (pastedUrl) {
@@ -84,13 +85,13 @@ const Home_Preview = ({ key }) => {
   //   else setModalVisible(false);
   // }, [pastedUrl]);
 
-  useEffect(() => {
-    if (data) {
-      console.log({ data });
-      Clipboard.setString(data);
-      alert('URL copied to clipboard!');
-    }
-  }, [data]);
+  // useEffect(() => {
+  //   if (data) {
+  //     console.log({ data });
+  //     Clipboard.setString(data);
+  //     alert('URL copied to clipboard!');
+  //   }
+  // }, [data]);
 
   const getUrl = async () => {
     try {
@@ -118,25 +119,60 @@ const Home_Preview = ({ key }) => {
     </TouchableOpacity>
   );
 
+  const renderPlatformsAvailable = ({ item }) => {
+    let name = PLATFORMS[item.name].name;
+    let src = PLATFORMS[item.name].logo_path;
+    
+    return (
+    <TouchableOpacity
+      key={item.id}
+      style={styles.platformContainer}
+      onPress={() => handlePlatformSelect(item.name)}
+    >
+    {src !== '' ? <>
+          <Text style={styles.platformText}>{name}</Text>
+          <Image
+            source={{
+              uri: {src},
+              width: 100,
+              height: 20,
+            }}
+          />
+    </> : <>
+            <Text style={styles.platformText}>{name}</Text>
+    </>}
+    </TouchableOpacity>
+  );};
+
   return (
     <View style={styles.container}>
       {/* Only showing the last shared song. If none, show instructions */}
-      <View style={styles.container}>
-        <Text>Here lies a song you shared 🗿</Text>
-        <Image
-          style={styles.coverArt}
-          source={{
-            uri: thumbnail,
-            width: 200,
-            height: 200,
-          }}
-        />
+      <View style={{
+        flex: 1,
+        alignItems: 'center'
+      }}>
+        <View>
+        <Text>From {origin}</Text>
+          <Image
+            style={styles.coverArt}
+            source={{
+              uri: thumbnail,
+              width: 150,
+              height: 150,
+            }}
+          />
+        </View>
         <Text>{songType}</Text>
         <Text>{songName}</Text>
         <Text>{artistName}</Text>
-        <Text>{origin}</Text>
         <Text>{convertedTo}</Text>
-        <Text>{platformsAvailable}</Text>
+        <FlatList
+          // scrollEnabled={false}
+          numColumns={2}
+          data={platformsAvailable}
+          renderItem={renderPlatformsAvailable}
+          keyExtractor={item => item.id}
+        />
       </View>
       <Pressable
         onPress={handleNewShare}

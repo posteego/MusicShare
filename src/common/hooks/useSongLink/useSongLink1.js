@@ -16,34 +16,47 @@ const useSongLink = (url) => { // add selectedPlatform
     url: encodeURIComponent(url),
     songIfSingle: true,
   };
-  
+
   // add reqBody to the url as correct url params
   // Object.keys(reqBody).forEach(key => baseUrl.searchParams.append(key, reqBody[key]));
   apiUrl.searchParams.append('url', searchParams.url);
 
   const getMetadata = (data) => {
-    zustandStorage.setItem('lastSongUrl', url);
     const originalService = data.entityUniqueId.split('_')[0];
-    zustandStorage.setItem('lastSongOrigin', originalService.toLowerCase())
     const entities = data.entitiesByUniqueId;
     // grab first set of data
     const arbitraryService = Object.keys(entities)[0];
     const serviceData = entities[arbitraryService];
     const serviceName = serviceData.apiProvider;
     const type = serviceData.type.toUpperCase();
-    zustandStorage.setItem('lastSongType', type);
     const title = serviceData.title;
-    zustandStorage.setItem('lastSongName', title);
     const artistName = serviceData.artistName;
-    zustandStorage.setItem('lastSongArtist', artistName);
     const thumbnailUrl = serviceData.thumbnailUrl;
-    zustandStorage.setItem('lastSongThumbnail', thumbnailUrl);
     const thumbnailWidth = serviceData.thumbnailWidth;
     const thumbnailHeight = serviceData.thumbnailHeight;
+    zustandStorage.setItem('lastSongUrl', url);
+    zustandStorage.setItem('lastSongOrigin', originalService.toLowerCase());
+    zustandStorage.setItem('lastSongType', type);
+    zustandStorage.setItem('lastSongName', title);
+    zustandStorage.setItem('lastSongArtist', artistName);
+    zustandStorage.setItem('lastSongThumbnail', thumbnailUrl);
+
+    // const plats = new Object();
+
+    // for (const name in data.linksByPlatform) {
+    //   plats[name] = data.linksByPlatform[name].url;
+    // }
 
     const platformsAvailableByName = Object.keys(data.linksByPlatform);
 
-    const platformsAvailable = platformsAvailableByName.map(name => ({ [name]: data.linksByPlatform[name].url }));
+    const platformsAvailable = platformsAvailableByName.map((name, idx) => (
+      {
+        id: idx,
+        name: name,
+        url: data.linksByPlatform[name].url,
+      }
+    ));
+    // const platformsAvailable = plats;
 
     const stringed = JSON.stringify(platformsAvailable);
     zustandStorage.setItem('platformsAvailable', stringed);
