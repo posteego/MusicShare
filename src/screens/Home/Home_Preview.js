@@ -133,9 +133,9 @@ const Home_Preview = ({ key }) => {
           <Text style={styles.platformText}>{name}</Text>
           <Image
             source={{
-              uri: {src},
+              uri: src,
               width: 100,
-              height: 20,
+              height: 10,
             }}
           />
     </> : <>
