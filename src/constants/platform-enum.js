@@ -1,6 +1,3 @@
-// import spotifyLogo from 'assets/logos_black/spotify-black.png';
-// may need to do the above with FastImage
-
 const PLATFORMS = Object.freeze({
   spotify: {
     id: 'spotify',

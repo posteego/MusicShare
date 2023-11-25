@@ -3,6 +3,7 @@ import { string } from 'prop-types';
 import {
   FlatList, View, Text, Image, Pressable, Modal, TouchableOpacity, ScrollView,
 } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Clipboard from '@react-native-clipboard/clipboard';
 import isUrl from 'validator/lib/isURL';
@@ -122,27 +123,28 @@ const Home_Preview = ({ key }) => {
   const renderPlatformsAvailable = ({ item }) => {
     let name = PLATFORMS[item.name].name;
     let src = PLATFORMS[item.name].logo_path;
-    
+
     return (
-    <TouchableOpacity
-      key={item.id}
-      style={styles.platformContainer}
-      onPress={() => handlePlatformSelect(item.name)}
-    >
-    {src !== '' ? <>
-          <Text style={styles.platformText}>{name}</Text>
-          <Image
-            source={{
-              uri: src,
-              width: 100,
-              height: 10,
-            }}
-          />
-    </> : <>
+      <TouchableOpacity
+        key={item.id}
+        style={styles.platformContainer}
+        onPress={() => handlePlatformSelect(item.name)}
+      >
+        {src !== ''
+          ? <>
             <Text style={styles.platformText}>{name}</Text>
-    </>}
-    </TouchableOpacity>
-  );};
+            <FastImage
+              source={{
+                uri: src,
+              }}
+            />
+          </>
+          : <>
+            <Text style={styles.platformText}>{name}</Text>
+          </>}
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <View style={styles.container}>
@@ -152,7 +154,7 @@ const Home_Preview = ({ key }) => {
         alignItems: 'center'
       }}>
         <View>
-        <Text>From {origin}</Text>
+          <Text>From {origin}</Text>
           <Image
             style={styles.coverArt}
             source={{
@@ -167,7 +169,7 @@ const Home_Preview = ({ key }) => {
         <Text>{artistName}</Text>
         <Text>{convertedTo}</Text>
         <FlatList
-          // scrollEnabled={false}
+          scrollEnabled={false}
           numColumns={2}
           data={platformsAvailable}
           renderItem={renderPlatformsAvailable}
