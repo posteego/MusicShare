@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { string } from 'prop-types';
 import {
-  FlatList, View, Text, Image, Pressable, Modal, TouchableOpacity, ScrollView,
+  FlatList, View, Text, Image,
+  Pressable, Modal, TouchableOpacity, ScrollView,
+  useColorScheme,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -20,48 +22,12 @@ const defaultProps = {
   key: null,
 };
 
-// const PLATFORMS = [
-//   // 'spotify',
-//   'appleMusic',
-//   'youtube',
-//   'youtubeMusic',
-//   // 'pandora',
-//   // 'deezer',
-//   // 'tidal',
-//   'amazonMusic',
-//   // 'soundcloud',
-//   // 'napster',
-//   // 'yandex',
-//   // 'spinrilla',
-//   // 'audius',
-//   'itunes',
-//   'googleStore',
-//   'amazonStore',
-// ];
-
-const platformIcons = {
-  // spotify: 'logo-spotify',
-  appleMusic: 'logo-apple',
-  youtube: 'logo-youtube',
-  youtubeMusic: 'logo-youtube',
-  // pandora: 'logo-pandora',
-  // deezer: 'logo-deezer',
-  // tidal: 'logo-tidal',
-  amazonMusic: 'logo-amazon',
-  // soundcloud: 'logo-soundcloud',
-  // napster: 'logo-napster',
-  // yandex: 'logo-yandex',
-  // spinrilla: 'logo-spinrilla',
-  // audius: 'logo-audius',
-  itunes: 'logo-apple',
-  googleStore: 'logo-google-playstore',
-  amazonStore: 'logo-amazon',
-};
-
 const Home_Preview = ({ key }) => {
+  const theme = useColorScheme();
   const [pastedUrl, setPastedUrl] = useState(null);
-  const [modalVisible, setModalVisible] = useState(false);
-  const [selectedPlatform, setSelectedPlatform] = useState(null);
+  const [modalVisible, setModalVisible] = useState(false); // REMOVE
+  const [selectedPlatform, setSelectedPlatform] = useState(null); // REMOVE
+  // grab zustand data from the hook, not from home screen
   const { data, loading, error, requestFetch } = useSongLink(pastedUrl);
 
   // song data
@@ -116,7 +82,7 @@ const Home_Preview = ({ key }) => {
   const renderPlatform = (platform) => (
     <TouchableOpacity key={platform} style={styles.platformContainer} onPress={() => handlePlatformSelect(platform)}>
       <Icon name={platformIcons[platform]} size={48} style={styles.platformIcon} />
-      <Text style={styles.platformText}>{platform}</Text>
+      <Text style={styles.platformText(theme)}>{platform}</Text>
     </TouchableOpacity>
   );
 
@@ -132,7 +98,7 @@ const Home_Preview = ({ key }) => {
       >
         {src !== ''
           ? <>
-            <Text style={styles.platformText}>{name}</Text>
+            <Text style={styles.platformText(theme)}>{name}</Text>
             <FastImage
               source={{
                 uri: src,
@@ -140,7 +106,7 @@ const Home_Preview = ({ key }) => {
             />
           </>
           : <>
-            <Text style={styles.platformText}>{name}</Text>
+            <Text style={styles.platformText(theme)}>{name}</Text>
           </>}
       </TouchableOpacity>
     );
@@ -154,7 +120,7 @@ const Home_Preview = ({ key }) => {
         alignItems: 'center'
       }}>
         <View>
-          <Text>From {origin}</Text>
+          <Text style={styles.text(theme)}>From {origin}</Text>
           <Image
             style={styles.coverArt}
             source={{
@@ -164,10 +130,10 @@ const Home_Preview = ({ key }) => {
             }}
           />
         </View>
-        <Text>{songType}</Text>
-        <Text>{songName}</Text>
-        <Text>{artistName}</Text>
-        <Text>{convertedTo}</Text>
+        <Text style={styles.text(theme)}>{songType}</Text>
+        <Text style={styles.text(theme)}>{songName}</Text>
+        <Text style={styles.text(theme)}>{artistName}</Text>
+        <Text style={styles.text(theme)}>{convertedTo}</Text>
         <FlatList
           scrollEnabled={false}
           numColumns={2}

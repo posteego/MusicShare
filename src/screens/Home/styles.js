@@ -1,4 +1,6 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform, PixelRatio } from 'react-native';
+
+// const primaryFontColor = useColorScheme() === 'dark' ? '#f2ee6e' : '#000000';
 
 export default StyleSheet.create({
   container: {
@@ -7,6 +9,9 @@ export default StyleSheet.create({
   flatListContainer: {
     marginHorizontal: 20,
   },
+  text: theme => ({
+    color: theme === 'dark' ? '#776DF2' : '#000000',
+  }),
   songCard: {
     flexDirection: 'row',
     paddingVertical: 10,
@@ -83,8 +88,10 @@ export default StyleSheet.create({
   platformIcon: {
     marginBottom: 5,
   },
-  platformText: {
-    fontSize: 14,
+  platformText: theme => ({
+    fontSize: 20,
+    fontWeight: '700',
+    color: theme === 'dark' ? '#f2ee6e': '#000000',
     textAlign: 'center',
-  },
+  }),
 });
