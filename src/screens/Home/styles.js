@@ -7,11 +7,11 @@ export default StyleSheet.create({
   },
   subtext: (theme) => ({
     color: theme === 'dark' ? '#BFBD7C' : '#444444',
-    fontSize: 14,
+    fontSize: 12,
   }),
   text: (theme) => ({
     color: theme === 'dark' ? '#f2ee6e' : '#000000',
-    fontSize: 20,
+    fontSize: 16,
   }),
   flatListStyle: {
     flex: 1,
@@ -49,7 +49,7 @@ export default StyleSheet.create({
     alignItems: 'flex-start',
     // justifyContent: 'center',
     marginHorizontal: 5,
-    paddingLeft: 30,
+    paddingHorizontal: 20,
     paddingVertical: 10,
     marginVertical: 2,
     borderRadius: 4,
@@ -59,7 +59,7 @@ export default StyleSheet.create({
     marginBottom: 5,
   },
   platformText: (theme) => ({
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: '600',
     color: theme === 'dark' ? '#f2ee6e' : '#FFFFFF',
     textAlign: 'center',
