@@ -34,7 +34,7 @@ const Home_Preview = ({ key }) => {
   const songUrl = zustandStorage.getItem('lastSongUrl');
   const songName = zustandStorage.getItem('lastSongName');
   const artistName = zustandStorage.getItem('lastSongArtist');
-  const convertedTo = zustandStorage.getItem('lastSongConversion');
+  // const convertedTo = zustandStorage.getItem('lastSongConversion');
   const thumbnail = zustandStorage.getItem('lastSongThumbnail');
   const origin = zustandStorage.getItem('lastSongOrigin');
   const songType = zustandStorage.getItem('lastSongType');
@@ -79,13 +79,6 @@ const Home_Preview = ({ key }) => {
     setModalVisible(false);
   };
 
-  const renderPlatform = (platform) => (
-    <TouchableOpacity key={platform} style={styles.platformContainer} onPress={() => handlePlatformSelect(platform)}>
-      <Icon name={platformIcons[platform]} size={48} style={styles.platformIcon} />
-      <Text style={styles.platformText(theme)}>{platform}</Text>
-    </TouchableOpacity>
-  );
-
   const renderPlatformsAvailable = ({ item }) => {
     let name = PLATFORMS[item.name].name;
     let src = PLATFORMS[item.name].logo_path;
@@ -115,33 +108,27 @@ const Home_Preview = ({ key }) => {
   return (
     <View style={styles.container}>
       {/* Only showing the last shared song. If none, show instructions */}
-      <View style={{
-        flex: 1,
-        alignItems: 'center'
-      }}>
-        <View>
-          <Text style={styles.text(theme)}>From {origin}</Text>
-          <Image
-            style={styles.coverArt}
-            source={{
-              uri: thumbnail,
-              width: 150,
-              height: 150,
-            }}
-          />
+      <View>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <Text style={styles.subtext(theme)}>{songType}</Text>
+          <Text style={styles.subtext(theme)}>from {origin}</Text>
         </View>
-        <Text style={styles.text(theme)}>{songType}</Text>
-        <Text style={styles.text(theme)}>{songName}</Text>
-        <Text style={styles.text(theme)}>{artistName}</Text>
-        <Text style={styles.text(theme)}>{convertedTo}</Text>
-        <FlatList
-          scrollEnabled={false}
-          numColumns={2}
-          data={platformsAvailable}
-          renderItem={renderPlatformsAvailable}
-          keyExtractor={item => item.id}
+        <Image
+          style={styles.coverArt}
+          source={{ uri: thumbnail }}
         />
       </View>
+      <Text style={styles.text(theme)}>{songName}</Text>
+      <Text style={styles.text(theme)}>{artistName}</Text>
+      <FlatList
+        style={styles.flatListStyle}
+        scrollEnabled={false}
+        numColumns={2}
+        data={platformsAvailable}
+        renderItem={renderPlatformsAvailable}
+        keyExtractor={item => item.id}
+        refreshing={loading}
+      />
       <Pressable
         onPress={handleNewShare}
         style={({ pressed }) => [styles.shareButton(pressed)]}
@@ -151,7 +138,7 @@ const Home_Preview = ({ key }) => {
           <Icon
             name="duplicate-outline"
             size={28}
-            color={pressed ? 'black' : 'white'}
+            color={pressed ? '#f2ee6e' : '#776DF2'}
           />
         )}
       </Pressable>
