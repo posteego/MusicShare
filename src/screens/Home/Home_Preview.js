@@ -25,8 +25,6 @@ const defaultProps = {
 const Home_Preview = ({ key }) => {
   const theme = useColorScheme();
   const [pastedUrl, setPastedUrl] = useState(null);
-  const [modalVisible, setModalVisible] = useState(false); // REMOVE
-  const [selectedPlatform, setSelectedPlatform] = useState(null); // REMOVE
   // grab zustand data from the hook, not from home screen
   const { data, loading, error, requestFetch } = useSongLink(pastedUrl);
 
@@ -58,11 +56,6 @@ const Home_Preview = ({ key }) => {
 
   const handleNewShare = async () => {
     getUrl();
-  };
-
-  const handlePlatformSelect = async (platform) => {
-    setSelectedPlatform(platform);
-    setModalVisible(false);
   };
 
   const renderPlatformsAvailable = ({ item }) => {

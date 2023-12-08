@@ -11,7 +11,6 @@ export default useSongStore = create(
       lastSongName: null,
       lastSongArtist: null,
       lastSongThumbnail: null,
-      lastSongConversion: null,
       platformsAvailable: null,
     }),
     {

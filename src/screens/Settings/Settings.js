@@ -1,7 +1,7 @@
 import React from 'react';
 import { string } from 'prop-types';
 import {
-  View, Text,
+  View, Text, Pressable,
 } from 'react-native';
 
 const propTypes = {
@@ -17,7 +17,12 @@ const Settings = ({ key }) => {
 
   return (
     <View style={{ flex: 1 }}>
-      <Text>Setup</Text>
+      <Pressable style={{ alignItems: 'center' }}>
+        <Text>Reset Cache</Text>
+      </Pressable>
+      <View style={{ alignItems: 'center', marginVertical: 50 }}>
+        <Text>Powered by Odesli.co</Text>
+      </View>
     </View>
   );
 };
