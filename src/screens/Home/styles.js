@@ -9,6 +9,11 @@ export default StyleSheet.create({
     color: theme === 'dark' ? '#BFBD7C' : '#444444',
     fontSize: 12,
   }),
+  titleText: (theme) => ({
+    color: theme === 'dark' ? '#f2ee6e' : '#000000',
+    fontSize: 16,
+    fontWeight: 'bold',
+  }),
   text: (theme) => ({
     color: theme === 'dark' ? '#f2ee6e' : '#000000',
     fontSize: 16,

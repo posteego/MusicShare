@@ -105,7 +105,7 @@ const Home_Preview = ({ key }) => {
         />
       </View>
       <View style={{ alignItems: 'center', marginBottom: 5 }}>
-        <Text style={styles.text(theme)}>{songName}</Text>
+        <Text style={styles.titleText(theme)}>{songName}</Text>
         <Text style={styles.text(theme)}>{artistName}</Text>
       </View>
       <FlatList
