@@ -1,6 +1,4 @@
-import { StyleSheet, Platform, PixelRatio } from 'react-native';
-
-// const primaryFontColor = useColorScheme() === 'dark' ? '#f2ee6e' : '#000000';
+import { StyleSheet, Platform } from 'react-native';
 
 export default StyleSheet.create({
   container: {
@@ -8,13 +6,12 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   subtext: (theme) => ({
-    color: theme === 'dark' ? '#BFBD7C' : '#121212',
-    fontSize: 16,
-    fontWeight: '200',
+    color: theme === 'dark' ? '#BFBD7C' : '#444444',
+    fontSize: 14,
   }),
   text: (theme) => ({
     color: theme === 'dark' ? '#f2ee6e' : '#000000',
-    fontSize: 22,
+    fontSize: 20,
   }),
   flatListStyle: {
     flex: 1,
@@ -48,65 +45,23 @@ export default StyleSheet.create({
     radius: 25,
   },
   platformContainer: {
-    width: '50%',
+    width: 170,
     alignItems: 'flex-start',
     // justifyContent: 'center',
-    paddingHorizontal: 40,
-    marginVertical: 10,
+    marginHorizontal: 5,
+    paddingLeft: 30,
+    paddingVertical: 10,
+    marginVertical: 2,
+    borderRadius: 4,
+    backgroundColor: '#776DF2',
   },
   platformIcon: {
     marginBottom: 5,
   },
   platformText: (theme) => ({
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: theme === 'dark' ? '#776DF2': '#000000',
+    fontSize: 18,
+    fontWeight: '600',
+    color: theme === 'dark' ? '#f2ee6e' : '#FFFFFF',
     textAlign: 'center',
   }),
-  // flatListContainer: {
-  //   marginHorizontal: 20,
-  // },
-  // songCard: {
-  //   flexDirection: 'row',
-  //   paddingVertical: 10,
-  // },
-  // songCardRight: {
-  //   flex: 1,
-  //   marginLeft: 10,
-  // },
-  // timestamp: {
-  //   fontSize: 12,
-  //   alignSelf: 'flex-end',
-  // },
-  // songTitle: {
-  //   fontWeight: 'bold',
-  //   fontSize: 16,
-  // },
-  // artistName: {
-  //   fontSize: 16,
-  // },
-  // cardLabelContainer: {
-  //   flexDirection: 'row',
-  //   justifyContent: 'space-between',
-  //   marginTop: 10,
-  // },
-  // cardLabel: {
-  //   fontSize: 12,
-  // },
-  // modalBackground: {
-  //   flex: 1,
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  //   backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  // },
-  // modalContent: {
-  //   flexWrap: 'wrap',
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  //   flexDirection: 'row',
-  //   backgroundColor: 'white',
-  //   borderRadius: 20,
-  //   padding: 20,
-  //   margin: 20,
-  // },
 });

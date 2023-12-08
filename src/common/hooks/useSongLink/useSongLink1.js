@@ -24,6 +24,7 @@ const useSongLink = (url) => { // add selectedPlatform
   const getMetadata = (data) => {
     const originalService = data.entityUniqueId.split('_')[0];
     const entities = data.entitiesByUniqueId;
+    console.log({ entities });
     // grab first set of data
     const arbitraryService = Object.keys(entities)[0];
     const serviceData = entities[arbitraryService];

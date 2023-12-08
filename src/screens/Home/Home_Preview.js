@@ -43,22 +43,8 @@ const Home_Preview = ({ key }) => {
   useEffect(() => {
     if (pastedUrl) {
       requestFetch();
-      // setSelectedPlatform(null);
     }
   }, [pastedUrl]);
-
-  // useEffect(() => {
-  //   if (pastedUrl) setModalVisible(true);
-  //   else setModalVisible(false);
-  // }, [pastedUrl]);
-
-  // useEffect(() => {
-  //   if (data) {
-  //     console.log({ data });
-  //     Clipboard.setString(data);
-  //     alert('URL copied to clipboard!');
-  //   }
-  // }, [data]);
 
   const getUrl = async () => {
     try {
@@ -87,7 +73,7 @@ const Home_Preview = ({ key }) => {
       <TouchableOpacity
         key={item.id}
         style={styles.platformContainer}
-        onPress={() => handlePlatformSelect(item.name)}
+        onPress={() => Clipboard.setString(item.url)}
       >
         {src !== ''
           ? <>
@@ -118,8 +104,10 @@ const Home_Preview = ({ key }) => {
           source={{ uri: thumbnail }}
         />
       </View>
-      <Text style={styles.text(theme)}>{songName}</Text>
-      <Text style={styles.text(theme)}>{artistName}</Text>
+      <View style={{ alignItems: 'center', marginBottom: 5 }}>
+        <Text style={styles.text(theme)}>{songName}</Text>
+        <Text style={styles.text(theme)}>{artistName}</Text>
+      </View>
       <FlatList
         style={styles.flatListStyle}
         scrollEnabled={false}
