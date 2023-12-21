@@ -15,8 +15,35 @@ platform :ios do
     match(app_identifier: 'com.app.bundle', type: 'development', readonly: true)
     match(app_identifier: 'com.app.bundle', type: 'appstore', readonly: true)
   end
+
+  desc 'build the iOS application'
+  private_lane :build do
+    certificates
+    increment_build_number(xcodeproj: './ios/MusicShare.xcodeproj')
+    gym(scheme: 'MusicShare', project: './ios/MusicShare.xcodeproj')
+  end
+
+  desc 'ship to testflight'
+  lane :beta do
+    build
+    pilot
+    commit_version_bump(message: 'Bump build'. xcodeproj: './ios/MusicShare.xcodeproj')
+    push_to_git_remote
+  end
 end
 
 platform :android do
   # android lanes
+  # desc 'build the android application'
+  # private_lane :build do
+  #   gradle(task: 'clean', project_dir: 'android/')
+  #   gradle(task: 'assemble', build_type: 'Release', project_dir: 'android/')
+  # end
+  # desc 'ship to playstore beta'
+  # lane :beta do
+  #   build
+  #   supply(track: 'beta', track_promote_to: 'beta')
+  #   git_commit(path: ['./android/gradle.properties'], message: 'Bump versionCode')
+  #   push_to_git_remote
+  # end
 end

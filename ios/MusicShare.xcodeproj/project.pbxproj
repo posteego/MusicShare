@@ -500,6 +500,7 @@
 				DEVELOPMENT_TEAM = C28KRK9PR3;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MusicShare/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BeatBridge;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -527,6 +528,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C28KRK9PR3;
 				INFOPLIST_FILE = MusicShare/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BeatBridge;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
