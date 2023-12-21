@@ -1,4 +1,4 @@
-package com.musicshare;
+package com.trippyadvisor.MusicShare;
 
 import com.reactnativenavigation.NavigationActivity;
 import com.facebook.react.ReactActivityDelegate;

@@ -1,4 +1,4 @@
-package com.musicshare;
+package com.trippyadvisor.MusicShare;
 
 import android.app.Application;
 import android.content.Context;

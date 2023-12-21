@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.musicshare">
+  package="com.trippyadvisor.MusicShare">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
