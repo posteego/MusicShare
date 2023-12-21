@@ -12,7 +12,7 @@ end
 platform :ios do
   desc 'Fetch certificates and provisioning profiles'
   lane :certificates do
-    match(app_identifier: 'com.app.bundle', type: 'development', readonly: true)
+    match(app_identifier: 'com.trippyadvisor.MusicShare', type: 'development', readonly: true)
     # match(app_identifier: 'com.app.bundle', type: 'appstore', readonly: true)
   end
 
