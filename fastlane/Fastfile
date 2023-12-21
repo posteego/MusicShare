@@ -1,7 +1,10 @@
 fastlane_version '2.217.0'
 
+desc 'ensure_git_branch set to dev for now, need better setup'
 before_all do
-  ensure_git_branch
+  ensure_git_branch(
+    branch: 'dev'
+  )
   ensure_git_status_clean
   git_pull
 end
