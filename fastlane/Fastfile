@@ -20,7 +20,7 @@ platform :ios do
   private_lane :build do
     certificates
     increment_build_number(xcodeproj: './ios/MusicShare.xcodeproj')
-    gym(scheme: 'MusicShare', export_method: 'app-store', project: './ios/MusicShare.xcodeproj')
+    gym(scheme: 'MusicShare', export_method: 'development', project: './ios/MusicShare.xcodeproj')
   end
 
   desc 'ship to testflight'
