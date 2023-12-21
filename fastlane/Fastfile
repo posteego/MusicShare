@@ -13,7 +13,7 @@ platform :ios do
   desc 'Fetch certificates and provisioning profiles'
   lane :certificates do
     match(app_identifier: 'com.app.bundle', type: 'development', readonly: true)
-    match(app_identifier: 'com.app.bundle', type: 'appstore', readonly: true)
+    # match(app_identifier: 'com.app.bundle', type: 'appstore', readonly: true)
   end
 
   desc 'build the iOS application'

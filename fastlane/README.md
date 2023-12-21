@@ -25,6 +25,14 @@ ensure_git_branch set to dev for now, need better setup
 
 Fetch certificates and provisioning profiles
 
+### ios beta
+
+```sh
+[bundle exec] fastlane ios beta
+```
+
+ship to testflight
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
