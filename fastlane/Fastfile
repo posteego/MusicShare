@@ -27,7 +27,7 @@ platform :ios do
   lane :beta do
     build
     pilot
-    commit_version_bump(message: 'Bump build'. xcodeproj: './ios/MusicShare.xcodeproj')
+    commit_version_bump(message: 'Bump build', xcodeproj: './ios/MusicShare.xcodeproj')
     push_to_git_remote
   end
 end
