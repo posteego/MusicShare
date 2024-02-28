@@ -82,7 +82,7 @@ export default {
                 component: {
                   id: APP_TABS[UI_TABS.HOME].compId,
                   name: 'Home', options: {
-                    topBar: topBar('MusicShare'),
+                    topBar: topBar('BeatBridge'),
                     bottomTab: {
                       text: 'Home',
                       icon: homeIcon,

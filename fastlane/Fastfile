@@ -19,15 +19,15 @@ platform :ios do
   desc 'build the iOS application'
   private_lane :build do
     certificates
-    increment_build_number(xcodeproj: './ios/MusicShare.xcodeproj')
-    gym(scheme: 'MusicShare', export_method: 'app-store', workspace: './ios/MusicShare.xcworkspace')
+    increment_build_number(xcodeproj: './ios/BeatBridge.xcodeproj')
+    gym(scheme: 'BeatBridge', export_method: 'app-store', workspace: './ios/BeatBridge.xcworkspace')
   end
 
   desc 'ship to testflight'
   lane :beta do
     build
     pilot
-    commit_version_bump(message: 'Bump build', xcodeproj: './ios/MusicShare.xcodeproj')
+    commit_version_bump(message: 'Bump build', xcodeproj: './ios/BeatBridge.xcodeproj')
     push_to_git_remote
   end
 end

@@ -5,7 +5,7 @@ import { Navigation } from "react-native-navigation";
 import Home from 'screens/Home';
 import Settings from 'screens/Settings';
 
-const screenName = componentObj => `MusicShare.${Object.keys(componentObj)[0]}`;
+const screenName = componentObj => `BeatBridge.${Object.keys(componentObj)[0]}`;
 
 export default () => {
   Navigation.registerComponent('Home', () => Home);

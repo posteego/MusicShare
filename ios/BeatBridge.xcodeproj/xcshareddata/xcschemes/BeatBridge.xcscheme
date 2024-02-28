@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "MusicShare.app"
-               BlueprintName = "MusicShare"
-               ReferencedContainer = "container:MusicShare.xcodeproj">
+               BuildableName = "BeatBridge.app"
+               BlueprintName = "BeatBridge"
+               ReferencedContainer = "container:BeatBridge.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "MusicShareTests.xctest"
-               BlueprintName = "MusicShareTests"
-               ReferencedContainer = "container:MusicShare.xcodeproj">
+               BuildableName = "BeatBridgeTests.xctest"
+               BlueprintName = "BeatBridgeTests"
+               ReferencedContainer = "container:BeatBridge.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "MusicShare.app"
-            BlueprintName = "MusicShare"
-            ReferencedContainer = "container:MusicShare.xcodeproj">
+            BuildableName = "BeatBridge.app"
+            BlueprintName = "BeatBridge"
+            ReferencedContainer = "container:BeatBridge.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "MusicShare.app"
-            BlueprintName = "MusicShare"
-            ReferencedContainer = "container:MusicShare.xcodeproj">
+            BuildableName = "BeatBridge.app"
+            BlueprintName = "BeatBridge"
+            ReferencedContainer = "container:BeatBridge.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
