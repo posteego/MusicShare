@@ -25,9 +25,9 @@ const Box = ({ height, width }) => {
 
 const ButtonGrid = () => {
   return (
-    <Animated.FlatList />
-  )
-}
+    <View></View>
+  );
+};
 
 const AnimatedLoading = () => {
   return (
