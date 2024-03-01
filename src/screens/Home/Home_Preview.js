@@ -5,7 +5,7 @@ import {
   Pressable, Modal, TouchableOpacity, ScrollView,
   useColorScheme,
 } from 'react-native';
-import AnimatedLoading from 'components';
+import { AnimatedLoading, AnimatedToast } from 'components';
 import FastImage from 'react-native-fast-image';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Clipboard from '@react-native-clipboard/clipboard';
@@ -28,6 +28,9 @@ const Home_Preview = ({ key }) => {
   const [pastedUrl, setPastedUrl] = useState(null);
   // grab zustand data from the hook, not from home screen
   const { data, loading, error, requestFetch } = useSongLink(pastedUrl);
+  const [showToast, setShowToast] = useState(false);
+  const [status, setStatus] = useState(null);
+  const [name, setName] = useState(null);
 
   // song data
   const songUrl = zustandStorage.getItem('lastSongUrl');
@@ -42,8 +45,18 @@ const Home_Preview = ({ key }) => {
   useEffect(() => {
     if (pastedUrl) {
       requestFetch();
+      setStatus(null);
     }
   }, [pastedUrl]);
+
+  useEffect(() => {
+    if (error) {
+      zustandStorage.removeItem('platformsAvailable');
+      setStatus(error);
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 2000);
+    }
+  }, [error]);
 
   const getUrl = async () => {
     try {
@@ -66,12 +79,17 @@ const Home_Preview = ({ key }) => {
     return (
       <TouchableOpacity
         key={item.id}
-        style={styles.platformContainer}
-        onPress={() => Clipboard.setString(item.url)}
+        style={[styles.platformContainer]}
+        onPress={() => {
+          Clipboard.setString(item.url);
+          setName(name);
+          setShowToast(true);
+          setTimeout(() => setShowToast(false), 2000);
+        }}
       >
         {src !== ''
           ? <>
-            <Text style={styles.platformText(theme)}>{name}</Text>
+            <Text style={[styles.platformText(theme)]}>{name}</Text>
             <FastImage
               source={{
                 uri: src,
@@ -79,7 +97,7 @@ const Home_Preview = ({ key }) => {
             />
           </>
           : <>
-            <Text style={styles.platformText(theme)}>{name}</Text>
+            <Text style={[styles.platformText(theme)]}>{name}</Text>
           </>}
       </TouchableOpacity>
     );
@@ -138,8 +156,8 @@ const Home_Preview = ({ key }) => {
         <FastImage
           source={require('assets/home/beatbridge1-500.png')}
           style={{
-            height: 150,
-            width: 150,
+            height: 200,
+            width: 200,
             marginBottom: 20,
           }}
         />
@@ -172,7 +190,8 @@ const Home_Preview = ({ key }) => {
   return (
     <View style={styles.container}>
       {/* Show Results or Instructions (LinkResult) if not loading */}
-      {loading == true ? <AnimatedLoading /> : <LinkResult data={data} />}
+      {showToast && <AnimatedToast status={status} platform={name} />}
+      {loading == true ? <AnimatedLoading theme={theme} /> : <LinkResult data={data} />}
       <PasteButton />
     </View >
   );

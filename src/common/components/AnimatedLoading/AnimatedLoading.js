@@ -1,41 +1,35 @@
 import Animated from 'react-native-reanimated';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
+import { useEffect } from 'react';
+import FastImage from 'react-native-fast-image';
+import { useSharedValue, withRepeat, withSpring } from 'react-native-reanimated';
+import styles from './styles';
 
-const TopLine = ({ }) => {
+const Top = ({ theme }) => {
+  const opacity = useSharedValue(0);
+
+  useEffect(() => {
+    opacity.value = withRepeat(withSpring(1), 0, true);
+  }, []);
+
   return (
-    <View style={{
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      height: 10,
-      width: 200,
-    }}>
-      <Animated.View style={{ height: '100%', width: 30, backgroundColor: 'rgba(0,0,0,0.2)' }} />
-      <Animated.View style={{ height: '100%', width: 100, backgroundColor: 'rgba(0,0,0,0.4)' }} />
+    <Animated.View style={{ alignItems: 'center', opacity: opacity }}>
+      <FastImage
+        source={require('assets/home/beatbridge2-500.png')}
+        style={{ height: 200, width: 200, marginBottom: 20 }}
+      />
+      <Text style={styles.mainText(theme)}>Fetching link information</Text>
+    </Animated.View>
+  );
+};
+
+const AnimatedLoading = ({ theme }) => {
+  return (
+    <View
+      style={styles.container}
+    >
+      <Top theme={theme}/>
     </View>
-  );
-};
-
-const Box = ({ height, width }) => {
-  return (
-    <View style={{ height, width, marginVertical: 10 }}>
-      <Animated.View style={{ height: '100%', width: '100%', backgroundColor: 'rgba(0,0,0,0.5)', borderRadius: 5 }} />
-    </View>
-  );
-};
-
-const ButtonGrid = () => {
-  return (
-    <View></View>
-  );
-};
-
-const AnimatedLoading = () => {
-  return (
-    <>
-      <TopLine />
-      <Box height={200} width={200}/>
-      <ButtonGrid />
-    </>
   );
 };
 

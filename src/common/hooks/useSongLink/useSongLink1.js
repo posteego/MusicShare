@@ -90,6 +90,14 @@ const useSongLink = (url) => { // add selectedPlatform
       setSongData(metadata);
     } catch (err) {
       setError(err);
+      zustandStorage.removeItem('lastSongUrl');
+      zustandStorage.removeItem('lastSongOrigin');
+      zustandStorage.removeItem('lastSongType');
+      zustandStorage.removeItem('lastSongName');
+      zustandStorage.removeItem('lastSongArtist');
+      zustandStorage.removeItem('lastSongThumbnail');
+      zustandStorage.removeItem('platformsAvailable');
+      setSongData(null);
       console.log('[useSongLink error]', err);
     } finally {
       setLoading(false);
