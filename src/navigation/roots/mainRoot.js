@@ -7,7 +7,7 @@ const getTabIcon = (tabName, selected) => {
     case UI_TABS.HOME:
       return selected ? 'headset' : 'headset-outline';
     case UI_TABS.SETTINGS:
-      return selected ? 'options' : 'options-outline';
+      return selected ? 'information-circle' : 'information-circle-outline';
     default:
       return;
   }
@@ -100,9 +100,9 @@ export default {
                 component: {
                   id: APP_TABS[UI_TABS.SETTINGS].compId,
                   name: 'Settings', options: {
-                    topBar: topBar('Settings'),
+                    topBar: topBar('About'),
                     bottomTab: {
-                      text: 'Settings',
+                      text: 'About',
                       icon: settingsIcon,
                       selectedIcon: settingsIconSelected,
                     },
@@ -116,3 +116,34 @@ export default {
     }
   }
 };
+
+/*
+/* ROOT v2 : single screen */
+// does not work
+// export default {
+//   root: {
+//     stack: {
+//       children: [
+//         {
+//           stack: {
+//             id: APP_TABS[UI_TABS.HOME].stackId, children: [
+//               {
+//                 component: {
+//                   id: APP_TABS[UI_TABS.HOME].compId,
+//                   name: 'Home', options: {
+//                     topBar: topBar('BeatBridge'),
+//                     bottomTab: {
+//                       text: 'Home',
+//                       icon: homeIcon,
+//                       selectedIcon: homeIconSelected,
+//                     },
+//                   },
+//                 },
+//               }
+//             ],
+//           },
+//         }
+//       ]
+//     }
+//   }
+// };
