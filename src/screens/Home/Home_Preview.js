@@ -175,7 +175,7 @@ const Home_Preview = ({ key }) => {
             *Sources supported by Odesli.co
           </Text>
           <Text style={[styles.text(theme), { paddingHorizontal: 24, marginTop: 10, marginBottom: 4 }]}>
-            2. Paste link by pressing the <Icon name="arrow-up" size={20} color="black" /> button
+            2. Paste link by pressing the <Icon name="arrow-up" size={20} color={theme === 'dark' ? '#f2ee6e' : 'black'} /> button
           </Text>
           <Text style={[styles.subtext(theme), { paddingHorizontal: 24, marginVertical: 0 }]}>
             Make sure to "Allow Paste"

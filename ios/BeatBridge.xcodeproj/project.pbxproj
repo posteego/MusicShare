@@ -518,10 +518,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.trippyadvisor.BeatBridge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trippyadvisor.MusicShare;
 				PRODUCT_NAME = BeatBridge;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.trippyadvisor.BeatBridge";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.trippyadvisor.MusicShare";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -553,10 +553,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.trippyadvisor.BeatBridge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trippyadvisor.MusicShare;
 				PRODUCT_NAME = BeatBridge;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.trippyadvisor.BeatBridge";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.trippyadvisor.MusicShare";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
