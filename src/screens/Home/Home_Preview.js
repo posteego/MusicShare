@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { string } from 'prop-types';
 import {
-  FlatList, View, Text, Image,
-  Pressable, Modal, TouchableOpacity, ScrollView,
-  useColorScheme,
+  FlatList, View, Text,
+  Pressable, TouchableOpacity,
+  useColorScheme, Linking,
 } from 'react-native';
+import Animated from 'react-native-reanimated';
 import { AnimatedLoading, AnimatedToast } from 'components';
 import FastImage from 'react-native-fast-image';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -79,49 +80,50 @@ const Home_Preview = ({ key }) => {
     return (
       <TouchableOpacity
         key={item.id}
-        style={[styles.platformContainer]}
+        // style={[styles.platformContainer]}
         onPress={() => {
+          /* open URL in dedicated app */
+          const isSupported = Linking.canOpenURL(item.url);
+          if (isSupported) {
+            Linking.openURL(item.url);
+            // call toast with correct modifiers
+          } else {
+            Alert.alert(`This url might be broken: ${item.url}`);
+          }
+        }}
+        delayLongPress={500}
+        onLongPress={() => {
+          /* copy URL to clipboard and show success toast */
           Clipboard.setString(item.url);
           setName(name);
           setShowToast(true);
           setTimeout(() => setShowToast(false), 2000);
         }}
+        onPressIn={() => {
+
+        }}
       >
-        {src !== ''
-          ? <>
-            <Text style={[styles.platformText(theme)]}>{name}</Text>
-            <FastImage
-              source={{
-                uri: src,
-              }}
-            />
-          </>
-          : <>
-            <Text style={[styles.platformText(theme)]}>{name}</Text>
-          </>}
+        <Animated.View
+          style={[styles.platformContainer]}
+        >
+          {src !== ''
+            ? <>
+              <Text style={[styles.platformText(theme)]}>{name}</Text>
+              <FastImage
+                source={{
+                  uri: src,
+                }}
+              />
+            </>
+            : <>
+              <Text style={[styles.platformText(theme)]}>{name}</Text>
+            </>}
+        </Animated.View>
       </TouchableOpacity>
     );
   };
 
-  const PasteButton = () => (
-    <Pressable
-      onPress={handleNewShare}
-      style={({ pressed }) => [styles.shareButton(pressed)]}
-      android_ripple={styles.androidRipple}
-    >
-      {({ pressed }) => (
-        <>
-          <Icon
-            name="arrow-up"
-            size={28}
-            color={pressed ? '#f2ee6e' : '#776DF2'}
-          />
-        </>
-      )}
-    </Pressable>
-  );
-
-  const LinkResult = ({ data }) => data ?
+  const LinkResult = () => (data ?
     <>
       <View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -172,7 +174,7 @@ const Home_Preview = ({ key }) => {
             1. Copy music link from source (e.g Spotify)*
           </Text>
           <Text style={[styles.subtext(theme), { paddingHorizontal: 24, marginVertical: 0 }]}>
-            *Sources supported by Odesli.co
+            Sources supported by Odesli.co
           </Text>
           <Text style={[styles.text(theme), { paddingHorizontal: 24, marginTop: 10, marginBottom: 4 }]}>
             2. Paste link by pressing the <Icon name="arrow-up" size={20} color={theme === 'dark' ? '#f2ee6e' : 'black'} /> button
@@ -185,13 +187,35 @@ const Home_Preview = ({ key }) => {
           </Text>
         </View>
       </View>
-    </>
+    </>);
+
+  const PasteButton = () => (
+    <Pressable
+      onPress={handleNewShare}
+      style={({ pressed }) => [styles.shareButton(pressed)]}
+      android_ripple={styles.androidRipple}
+    >
+      {({ pressed }) => (
+        <>
+          <Icon
+            name="arrow-up"
+            size={28}
+            color={pressed ? '#f2ee6e' : '#776DF2'}
+          />
+        </>
+      )}
+    </Pressable>
+  );
 
   return (
     <View style={styles.container}>
       {/* Show Results or Instructions (LinkResult) if not loading */}
       {showToast && <AnimatedToast status={status} platform={name} />}
-      {loading == true ? <AnimatedLoading theme={theme} /> : <LinkResult data={data} />}
+      {
+        loading == true ?
+          <AnimatedLoading theme={theme} />
+          : <LinkResult />
+      }
       <PasteButton />
     </View >
   );
