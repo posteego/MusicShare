@@ -24,4 +24,21 @@ export default StyleSheet.create({
     flex: 1,
     marginTop: 5,
   },
+  platformContainer: {
+    width: 170,
+    alignItems: 'flex-start',
+    // justifyContent: 'center',
+    marginHorizontal: 5,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    marginVertical: 2,
+    borderRadius: 4,
+    backgroundColor: '#776DF2',
+  },
+  platformText: (theme) => ({
+    fontSize: 14,
+    fontWeight: '600',
+    color: theme === 'dark' ? '#f2ee6e' : '#FFFFFF',
+    textAlign: 'center',
+  }),
 });

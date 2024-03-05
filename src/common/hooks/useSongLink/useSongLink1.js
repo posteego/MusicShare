@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
-import { zustandStorage } from 'stores';
+import { useSongStore } from 'stores';
 
 const ERROR_CODES = [
   'could_not_resolve_entity', // statusCode: 400
 ];
 
 const useSongLink = (url) => { // add selectedPlatform
-  const [songData, setSongData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [fetchRequested, setFetchRequested] = useState(false);
+  const songData = useSongStore();
 
   const apiUrl = new URL('https://api.song.link/v1-alpha.1/links?');
   const searchParams = {
@@ -21,31 +21,31 @@ const useSongLink = (url) => { // add selectedPlatform
   // Object.keys(reqBody).forEach(key => baseUrl.searchParams.append(key, reqBody[key]));
   apiUrl.searchParams.append('url', searchParams.url);
 
+  // const {
+  //   lastSongOrigin: originalService,
+  //   lastSongType: type,
+  //   lastSongTitle: title,
+  //   lastSongArtist: artistName,
+  //   lastSongThumbnail: thumbnail,
+  //   platformsAvailable: plats,
+  // } = useSongStore();
+  // let platformsAvailable = JSON.parse(plats) ?? null;
+
+  const setLastSongDetails = useSongStore((state) => state.setLastSongDetails);
+
   const getMetadata = (data) => {
     const originalService = data.entityUniqueId.split('_')[0];
     const entities = data.entitiesByUniqueId;
     // grab first set of data
     const arbitraryService = Object.keys(entities)[0];
     const serviceData = entities[arbitraryService];
-    const serviceName = serviceData.apiProvider;
+    // const serviceName = serviceData.apiProvider;
     const type = serviceData.type.toUpperCase();
     const title = serviceData.title;
     const artistName = serviceData.artistName;
     const thumbnailUrl = serviceData.thumbnailUrl;
-    const thumbnailWidth = serviceData.thumbnailWidth;
-    const thumbnailHeight = serviceData.thumbnailHeight;
-    zustandStorage.setItem('lastSongUrl', url);
-    zustandStorage.setItem('lastSongOrigin', originalService.toLowerCase());
-    zustandStorage.setItem('lastSongType', type);
-    zustandStorage.setItem('lastSongName', title);
-    zustandStorage.setItem('lastSongArtist', artistName);
-    zustandStorage.setItem('lastSongThumbnail', thumbnailUrl);
-
-    // const plats = new Object();
-
-    // for (const name in data.linksByPlatform) {
-    //   plats[name] = data.linksByPlatform[name].url;
-    // }
+    // const thumbnailWidth = serviceData.thumbnailWidth;
+    // const thumbnailHeight = serviceData.thumbnailHeight;
 
     const platformsAvailableByName = Object.keys(data.linksByPlatform);
 
@@ -56,10 +56,18 @@ const useSongLink = (url) => { // add selectedPlatform
         url: data.linksByPlatform[name].url,
       }
     ));
-    // const platformsAvailable = plats;
+    const plats = JSON.stringify(platformsAvailable);
 
-    const stringed = JSON.stringify(platformsAvailable);
-    zustandStorage.setItem('platformsAvailable', stringed);
+    // update store
+    setLastSongDetails({
+      url,
+      origin: originalService.toLowerCase(),
+      type,
+      name: title,
+      artist: artistName,
+      thumb: thumbnailUrl,
+      plats
+    });
 
     console.log(`${type} data provided by`, originalService);
     return {
@@ -67,8 +75,8 @@ const useSongLink = (url) => { // add selectedPlatform
       title,
       artistName,
       thumbnailUrl,
-      thumbnailWidth,
-      thumbnailHeight,
+      // thumbnailWidth,
+      // thumbnailHeight,
       originalService,
       platformsAvailable,
     }
@@ -86,18 +94,17 @@ const useSongLink = (url) => { // add selectedPlatform
       });
       const json = await response.json();
       if (json.statusCode === 400) throw json.code;
-      const metadata = getMetadata(json);
-      setSongData(metadata);
+      const okay = getMetadata(json);
     } catch (err) {
       setError(err);
-      zustandStorage.removeItem('lastSongUrl');
-      zustandStorage.removeItem('lastSongOrigin');
-      zustandStorage.removeItem('lastSongType');
-      zustandStorage.removeItem('lastSongName');
-      zustandStorage.removeItem('lastSongArtist');
-      zustandStorage.removeItem('lastSongThumbnail');
-      zustandStorage.removeItem('platformsAvailable');
-      setSongData(null);
+      // zustandStorage.removeItem('lastSongUrl');
+      // zustandStorage.removeItem('lastSongOrigin');
+      // zustandStorage.removeItem('lastSongType');
+      // zustandStorage.removeItem('lastSongName');
+      // zustandStorage.removeItem('lastSongArtist');
+      // zustandStorage.removeItem('lastSongThumbnail');
+      // zustandStorage.removeItem('platformsAvailable');
+      // setSongData(null);
       console.log('[useSongLink error]', err);
     } finally {
       setLoading(false);
@@ -118,6 +125,13 @@ const useSongLink = (url) => { // add selectedPlatform
   const requestFetch = () => {
     setFetchRequested(true);
   }
+
+  // useEffect(() => {
+  //   if (url == null) {
+  //     const metadata = getMetadata(null);
+  //     setSongData(metadata);
+  //   }
+  // }, []);
 
   return {
     data: songData,
