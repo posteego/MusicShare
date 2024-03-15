@@ -10,6 +10,7 @@ const useSongLink = (url) => { // add selectedPlatform
   const [error, setError] = useState(null);
   const [fetchRequested, setFetchRequested] = useState(false);
   const songData = useSongStore();
+  const { setLastSongDetails } = useSongStore((state) => state.setLastSongDetails);
 
   const apiUrl = new URL('https://api.song.link/v1-alpha.1/links?');
   const searchParams = {
@@ -30,8 +31,6 @@ const useSongLink = (url) => { // add selectedPlatform
   //   platformsAvailable: plats,
   // } = useSongStore();
   // let platformsAvailable = JSON.parse(plats) ?? null;
-
-  const setLastSongDetails = useSongStore((state) => state.setLastSongDetails);
 
   const getMetadata = (data) => {
     const originalService = data.entityUniqueId.split('_')[0];
@@ -59,27 +58,45 @@ const useSongLink = (url) => { // add selectedPlatform
     const plats = JSON.stringify(platformsAvailable);
 
     // update store
-    setLastSongDetails({
-      url,
-      origin: originalService.toLowerCase(),
-      type,
-      name: title,
-      artist: artistName,
-      thumb: thumbnailUrl,
-      plats
-    });
+    // setLastSongDetails({
+    //   url,
+    //   origin: originalService.toLowerCase(),
+    //   type,
+    //   name: title,
+    //   artist: artistName,
+    //   thumb: thumbnailUrl,
+    //   plats
+    // });
+    try {
+      setLastSongDetails({
+        lastSongUrl: url,
+        lastSongOrigin: originalService.toLowerCase(),
+        lastSongType: type,
+        lastSongName: title,
+        lastSongArtist: artistName,
+        lastSongThumbnail: thumbnailUrl,
+        platformsAvailable: plats,
+      });
+    } catch (err) {
+      // err [TypeError: undefined is not a function]
+      console.log('err', err);
+      console.log('songData', JSON.stringify(songData, null, 2));
+      
+    }
 
     console.log(`${type} data provided by`, originalService);
-    return {
-      type,
-      title,
-      artistName,
-      thumbnailUrl,
-      // thumbnailWidth,
-      // thumbnailHeight,
-      originalService,
-      platformsAvailable,
-    }
+    console.log('songData1', JSON.stringify(songData, null, 2));
+    
+    // return {
+    //   type,
+    //   title,
+    //   artistName,
+    //   thumbnailUrl,
+    //   // thumbnailWidth,
+    //   // thumbnailHeight,
+    //   originalService,
+    //   platformsAvailable,
+    // }
   };
 
   const fetchLinks = async () => {
@@ -94,18 +111,11 @@ const useSongLink = (url) => { // add selectedPlatform
       });
       const json = await response.json();
       if (json.statusCode === 400) throw json.code;
-      const okay = getMetadata(json);
+      getMetadata(json);
     } catch (err) {
       setError(err);
-      // zustandStorage.removeItem('lastSongUrl');
-      // zustandStorage.removeItem('lastSongOrigin');
-      // zustandStorage.removeItem('lastSongType');
-      // zustandStorage.removeItem('lastSongName');
-      // zustandStorage.removeItem('lastSongArtist');
-      // zustandStorage.removeItem('lastSongThumbnail');
-      // zustandStorage.removeItem('platformsAvailable');
-      // setSongData(null);
-      console.log('[useSongLink error]', err);
+      // reset();
+      console.log('[useSongLink error]', JSON.stringify(err, null, 2));
     } finally {
       setLoading(false);
       setFetchRequested(false);
@@ -134,7 +144,6 @@ const useSongLink = (url) => { // add selectedPlatform
   // }, []);
 
   return {
-    data: songData,
     loading,
     error,
     requestFetch,

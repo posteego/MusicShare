@@ -8,7 +8,6 @@ import FastImage from 'react-native-fast-image';
 import Clipboard from '@react-native-clipboard/clipboard';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useSongStore } from 'stores';
-import { useSongLink } from 'hooks';
 import PLATFORMS from 'constants/platform-enum';
 import styles from './styles';
 
@@ -36,8 +35,8 @@ const capitalizeLetters_ui = (words) => {
 
 const LinkResult = ({ loading, setToastName, setShowToast }) => {
   const theme = useColorScheme();
-  const { data: songData } = useSongLink();
-
+  const songData = useSongStore();
+  
   const renderPlatformsAvailable = ({ item }) => {
     let name = PLATFORMS[item.name].name;
     let src = PLATFORMS[item.name].logo_path;

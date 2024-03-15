@@ -23,11 +23,12 @@ const defaultProps = {
 const Home_Preview = ({ key }) => {
   const theme = useColorScheme();
   const [pastedUrl, setPastedUrl] = useState(null);
-  // grab zustand data from the hook, not from home screen
-  const { loading, error, requestFetch } = useSongLink(pastedUrl);
   const [showToast, setShowToast] = useState(false);
   const [status, setStatus] = useState(null);
   const [toastName, setToastName] = useState(null);
+
+  // grab zustand data from the hook, not from home screen
+  const { loading, error, requestFetch } = useSongLink(pastedUrl);
 
   useEffect(() => {
     if (pastedUrl) {

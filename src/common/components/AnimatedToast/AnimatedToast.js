@@ -1,5 +1,5 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, object } from 'prop-types';
 import {
   View, Text,
 } from 'react-native';
@@ -8,15 +8,16 @@ import styles from './styles';
 
 const propTypes = {
   platform: string,
-  status: string,
+  status: object,
 };
 
 const defaultProps = {
   platform: null,
-  status: null,
+  status: {},
 };
 
 const AnimatedToast = ({ status, platform }) => {
+  const themeStatus = status != {} ? true : false;
   return (
     <Animated.View
       entering={FadeInDown}
@@ -24,8 +25,8 @@ const AnimatedToast = ({ status, platform }) => {
       style={styles.toastContainer(status)}
     >
       <View style={styles.textContainer}>
-        <Text style={styles.title(status)}>{status ? 'Error': 'Link Copied!'}</Text>
-        <Text style={styles.description(status)}>{status ? status : platform}</Text>
+        <Text style={styles.title(status)}>{status != {} ? 'Error': 'Link Copied!'}</Text>
+        <Text style={styles.description(status)}>{status != {} ? JSON.stringify(status) : platform}</Text>
       </View>
     </Animated.View>
   );
