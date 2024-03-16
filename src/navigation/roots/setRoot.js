@@ -20,14 +20,14 @@ const mainStyleOptions = {
   layout: {
     componentBackgroundColor: {
       light: '#fff',
-      dark: '#121212',
+      dark: '#000',
     },
     orientation: 'portrait',
   },
   statusBar: {
     backgroundColor: {
       light: '#fff',
-      dark: '#121212',
+      dark: '#000',
     },
   },
   bottomTabs: {
@@ -35,7 +35,7 @@ const mainStyleOptions = {
     // barStyle: 'black',
     backgroundColor: {
       light: '#fff',
-      dark: '#121212',
+      dark: '#000', // 121212
     },
     tabsAttachMode: 'afterInitialTab',
     titleDisplayMode: 'alwaysShow',
@@ -65,7 +65,7 @@ const mainStyleOptions = {
     background: {
       color: {
         light: '#fff',
-        dark: '#121212',
+        dark: '#000', // 1212
       },
       // translucent: true,
     },

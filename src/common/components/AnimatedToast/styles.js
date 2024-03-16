@@ -4,7 +4,7 @@ export default StyleSheet.create({
   toastContainer: (status) => ({
     position: 'absolute',
     zIndex: 4,
-    backgroundColor: status ? 'red' : 'lightgreen', // make param
+    backgroundColor: status ? '#FC5B81' : '#96FA5A', // make param
     width: '90%',
     borderRadius: 4,
     padding: 10,

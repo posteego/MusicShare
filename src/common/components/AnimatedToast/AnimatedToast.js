@@ -8,12 +8,12 @@ import styles from './styles';
 
 const propTypes = {
   platform: string,
-  status: object,
+  status: string,
 };
 
 const defaultProps = {
   platform: null,
-  status: {},
+  status: null,
 };
 
 const AnimatedToast = ({ status, platform }) => {

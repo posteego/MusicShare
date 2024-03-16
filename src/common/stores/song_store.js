@@ -35,6 +35,10 @@ export default useSongStore = create(
         lastSongThumbnail,
         platformsAvailable,
       })),
+      setDefaultPlatform: ({ preferredPlatform }) => set((state) => ({
+        ...state,
+        preferredPlatform,
+      })),
       reset: () => set(initialState),
     }),
     {

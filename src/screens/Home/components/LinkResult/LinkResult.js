@@ -133,20 +133,23 @@ const LinkResult = ({ loading, setToastName, setShowToast }) => {
           Convert your music link to other services
         </Text>
         <View>
-          <Text style={[styles.text(theme), { paddingHorizontal: 24, marginBottom: 4 }]}>
+          <Text style={[styles.text(theme), { paddingHorizontal: 24, marginBottom: 0 }]}>
             1. Copy music link from source (e.g Spotify)*
           </Text>
-          <Text style={[styles.subtext(theme), { paddingHorizontal: 24, marginVertical: 0 }]}>
+          {/* <Text style={[styles.subtext(theme), { paddingHorizontal: 24, marginVertical: 0 }]}>
             Sources supported by Odesli.co
-          </Text>
+          </Text> */}
           <Text style={[styles.text(theme), { paddingHorizontal: 24, marginTop: 10, marginBottom: 4 }]}>
             2. Paste link by pressing the <Icon name="arrow-up" size={20} color={theme === 'dark' ? '#f2ee6e' : 'black'} /> button
           </Text>
           <Text style={[styles.subtext(theme), { paddingHorizontal: 24, marginVertical: 0 }]}>
             Make sure to "Allow Paste"
           </Text>
+          <Text style={[styles.text(theme), { paddingHorizontal: 24, marginTop: 10 }]}>
+            3. Tap to <Text style={{ fontSize: 24, fontWeight: '900' }}>COPY</Text> link, Hold to <Text style={{ fontSize: 24, fontWeight: '900' }}>OPEN</Text> link
+          </Text>
           <Text style={[styles.text(theme), { paddingHorizontal: 24, marginVertical: 10 }]}>
-            3. Tap to COPY link, Hold to OPEN link
+            4. Set default platform to automate conversion
           </Text>
         </View>
       </View>

@@ -9,6 +9,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Clipboard from '@react-native-clipboard/clipboard';
 import isUrl from 'validator/lib/isURL';
 import { useSongLink } from 'hooks';
+import { useSongStore } from 'stores';
 import { LinkResult } from './components';
 import styles from './styles';
 
@@ -41,7 +42,10 @@ const Home_Preview = ({ key }) => {
     if (error) {
       setStatus(error);
       setShowToast(true);
-      setTimeout(() => setShowToast(false), 2000);
+      setTimeout(() => {
+        setShowToast(false);
+        setStatus(null);
+      }, 2000);
     }
   }, [error]);
 

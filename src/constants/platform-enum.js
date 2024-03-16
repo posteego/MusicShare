@@ -75,11 +75,11 @@ const PLATFORMS = Object.freeze({
     logo_path: '/src/assets/logos_black/yandex.png',
   },
   // no longer exists
-  spinrilla: {
-    id: 'spotify',
-    name: 'Spotify',
-    logo_path: '',
-  },
+  // spinrilla: {
+  //   id: 'spotify',
+  //   name: 'Spotify',
+  //   logo_path: '',
+  // },
   audius: {
     id: 'audius',
     name: 'Audius',

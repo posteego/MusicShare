@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Linking } from 'react-native';
 import { useSongStore } from 'stores';
 
 const ERROR_CODES = [
@@ -9,7 +10,9 @@ const useSongLink = (url) => { // add selectedPlatform
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [fetchRequested, setFetchRequested] = useState(false);
+  const preferredPlatform = useSongStore((state) => state.preferredPlatform);
   const setLastSongDetails = useSongStore((state) => state.setLastSongDetails);
+  const reset = useSongStore((state) => state.reset);
 
   const apiUrl = new URL('https://api.song.link/v1-alpha.1/links?');
   const searchParams = {
@@ -31,7 +34,7 @@ const useSongLink = (url) => { // add selectedPlatform
   // } = useSongStore();
   // let platformsAvailable = JSON.parse(plats) ?? null;
 
-  const getMetadata = (data) => {
+  const getMetadata = async (data) => {
     const originalService = data.entityUniqueId.split('_')[0];
     const entities = data.entitiesByUniqueId;
     // grab first set of data
@@ -68,6 +71,15 @@ const useSongLink = (url) => { // add selectedPlatform
     });
 
     console.log(`${type} data provided by`, originalService);
+
+    console.log('data', JSON.stringify(data, null, 2));
+
+    if (
+      preferredPlatform !== null &&
+      preferredPlatform !== originalService.toLowerCase()
+    ) {
+      await Linking.openURL(data.linksByPlatform[preferredPlatform].url);
+    }
   };
 
   const fetchLinks = async () => {
@@ -90,6 +102,7 @@ const useSongLink = (url) => { // add selectedPlatform
     } finally {
       setLoading(false);
       setFetchRequested(false);
+      setError(null);
     }
   };
 
