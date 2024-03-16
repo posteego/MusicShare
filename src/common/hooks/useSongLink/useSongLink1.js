@@ -9,8 +9,7 @@ const useSongLink = (url) => { // add selectedPlatform
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [fetchRequested, setFetchRequested] = useState(false);
-  const songData = useSongStore();
-  const { setLastSongDetails } = useSongStore((state) => state.setLastSongDetails);
+  const setLastSongDetails = useSongStore((state) => state.setLastSongDetails);
 
   const apiUrl = new URL('https://api.song.link/v1-alpha.1/links?');
   const searchParams = {
@@ -58,45 +57,17 @@ const useSongLink = (url) => { // add selectedPlatform
     const plats = JSON.stringify(platformsAvailable);
 
     // update store
-    // setLastSongDetails({
-    //   url,
-    //   origin: originalService.toLowerCase(),
-    //   type,
-    //   name: title,
-    //   artist: artistName,
-    //   thumb: thumbnailUrl,
-    //   plats
-    // });
-    try {
-      setLastSongDetails({
-        lastSongUrl: url,
-        lastSongOrigin: originalService.toLowerCase(),
-        lastSongType: type,
-        lastSongName: title,
-        lastSongArtist: artistName,
-        lastSongThumbnail: thumbnailUrl,
-        platformsAvailable: plats,
-      });
-    } catch (err) {
-      // err [TypeError: undefined is not a function]
-      console.log('err', err);
-      console.log('songData', JSON.stringify(songData, null, 2));
-      
-    }
+    setLastSongDetails({
+      lastSongUrl: url,
+      lastSongOrigin: originalService.toLowerCase(),
+      lastSongType: type,
+      lastSongName: title,
+      lastSongArtist: artistName,
+      lastSongThumbnail: thumbnailUrl,
+      platformsAvailable: plats,
+    });
 
     console.log(`${type} data provided by`, originalService);
-    console.log('songData1', JSON.stringify(songData, null, 2));
-    
-    // return {
-    //   type,
-    //   title,
-    //   artistName,
-    //   thumbnailUrl,
-    //   // thumbnailWidth,
-    //   // thumbnailHeight,
-    //   originalService,
-    //   platformsAvailable,
-    // }
   };
 
   const fetchLinks = async () => {
@@ -114,7 +85,7 @@ const useSongLink = (url) => { // add selectedPlatform
       getMetadata(json);
     } catch (err) {
       setError(err);
-      // reset();
+      reset();
       console.log('[useSongLink error]', JSON.stringify(err, null, 2));
     } finally {
       setLoading(false);

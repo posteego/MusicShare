@@ -17,7 +17,6 @@ const defaultProps = {
 };
 
 const AnimatedToast = ({ status, platform }) => {
-  const themeStatus = status != {} ? true : false;
   return (
     <Animated.View
       entering={FadeInDown}
@@ -25,8 +24,8 @@ const AnimatedToast = ({ status, platform }) => {
       style={styles.toastContainer(status)}
     >
       <View style={styles.textContainer}>
-        <Text style={styles.title(status)}>{status != {} ? 'Error': 'Link Copied!'}</Text>
-        <Text style={styles.description(status)}>{status != {} ? JSON.stringify(status) : platform}</Text>
+        <Text style={styles.title(status)}>{status ? 'Error': 'Link Copied!'}</Text>
+        <Text style={styles.description(status)}>{status ? JSON.stringify(status) : platform}</Text>
       </View>
     </Animated.View>
   );

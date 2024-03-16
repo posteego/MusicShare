@@ -33,12 +33,12 @@ export default StyleSheet.create({
     paddingVertical: 10,
     marginVertical: 2,
     borderRadius: 4,
-    backgroundColor: '#776DF2',
+    backgroundColor: '#405FDF',
   },
   platformText: (theme) => ({
     fontSize: 14,
     fontWeight: '600',
-    color: theme === 'dark' ? '#f2ee6e' : '#FFFFFF',
+    color: theme === 'dark' ? '#FFF' : '#FFFFFF',
     textAlign: 'center',
   }),
 });

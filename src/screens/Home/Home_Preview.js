@@ -70,7 +70,7 @@ const Home_Preview = ({ key }) => {
           <Icon
             name="arrow-up"
             size={28}
-            color={pressed ? '#f2ee6e' : '#776DF2'}
+            color={pressed ? '#f2ee6e' : '#405FDF'}
           />
         </>
       )}

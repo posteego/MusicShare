@@ -110,7 +110,7 @@ const LinkResult = ({ loading, setToastName, setShowToast }) => {
       style={styles.flatListStyle}
       scrollEnabled={false}
       numColumns={2}
-      data={songData.platformsAvailable ?? null}
+      data={JSON.parse(songData.platformsAvailable) ?? null}
       renderItem={renderPlatformsAvailable}
       keyExtractor={item => item.id}
       refreshing={loading}

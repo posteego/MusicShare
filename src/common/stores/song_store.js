@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from 'zustand/middleware';
-import { zustandStorage } from "./mmkv";
+import zustandStorage from "./mmkv";
 
 // maybe use react-native-mmkv-storage if mmkv not working
 // new update means both libs are in C++ on the JSI
@@ -23,9 +23,10 @@ export default useSongStore = create(
       // key-value pairs
       ...initialState,
       // actions
-      setLastSongDetails: (
-       lastSongUrl, lastSongOrigin, lastSongType, lastSongName, lastSongArtist, lastSongThumbnail, platformsAvailable
-      ) => set({
+      setLastSongDetails: ({
+        lastSongUrl, lastSongOrigin, lastSongType, lastSongName,
+        lastSongArtist, lastSongThumbnail, platformsAvailable,
+      }) => set(() => ({
         lastSongUrl,
         lastSongOrigin,
         lastSongType,
@@ -33,7 +34,7 @@ export default useSongStore = create(
         lastSongArtist,
         lastSongThumbnail,
         platformsAvailable,
-      }),
+      })),
       reset: () => set(initialState),
     }),
     {

@@ -58,7 +58,7 @@ export default StyleSheet.create({
     paddingVertical: 10,
     marginVertical: 2,
     borderRadius: 4,
-    backgroundColor: '#776DF2',
+    backgroundColor: '#405FDF',
   },
   platformIcon: {
     marginBottom: 5,
