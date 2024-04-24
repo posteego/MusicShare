@@ -21,8 +21,8 @@ const propTypes = {
 const defaultProps = {
   data: null,
   loading: false,
-  setToastName: () => {},
-  setShowToast: () => {},
+  setToastName: () => { },
+  setShowToast: () => { },
 };
 
 const capitalizeLetters_ui = (words) => {
@@ -36,7 +36,7 @@ const capitalizeLetters_ui = (words) => {
 const LinkResult = ({ loading, setToastName, setShowToast }) => {
   const theme = useColorScheme();
   const songData = useSongStore();
-  
+
   const renderPlatformsAvailable = ({ item }) => {
     let name = PLATFORMS[item.name].name;
     let src = PLATFORMS[item.name].logo_path;
@@ -68,15 +68,15 @@ const LinkResult = ({ loading, setToastName, setShowToast }) => {
         }}
       >
         <View
-          style={[styles.platformContainer]}
+          style={[styles.platformContainer(theme)]}
         >
           {src !== ''
             ? <>
-              <Text style={[styles.platformText(theme)]}>{name}</Text>
+              {/* <Text style={[styles.platformText(theme)]}>{name}</Text> */}
               <FastImage
-                source={{
-                  uri: src,
-                }}
+                resizeMode='contain'
+                style={styles.logos}
+                source={src}
               />
             </>
             : <>
@@ -88,23 +88,24 @@ const LinkResult = ({ loading, setToastName, setShowToast }) => {
   };
 
   return songData.lastSongUrl ? <>
-    <View>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Text style={styles.subtext(theme)}>{songData.lastSongType}</Text>
-        <Text style={styles.subtext(theme)}>from {capitalizeLetters_ui(songData.lastSongOrigin)}</Text>
+    <View style={styles.rowContainer(theme)}>
+      <View style={{ flex: 0.4 }}>
+        <FastImage
+          style={styles.coverArt}
+          source={{ uri: songData.lastSongThumbnail, priority: 'high' }}
+        />
       </View>
-      <FastImage
-        style={styles.coverArt}
-        source={{ uri: songData.lastSongThumbnail, priority: 'high' }}
-      />
-    </View>
-    <View style={{ alignItems: 'center', marginBottom: 5, marginHorizontal: 20 }}>
-      <Text style={[styles.titleText(theme), { textAlign: 'center' }]}>
-        {songData.lastSongName}
-      </Text>
-      <Text style={[styles.text(theme), { textAlign: 'center' }]}>
-        {songData.lastSongArtist}
-      </Text>
+      <View style={{ flex: 0.5, justifyContent: 'center' }}>
+        <Text style={[styles.subtext(theme)]}>
+          {songData.lastSongType} from {capitalizeLetters_ui(songData.lastSongOrigin)}
+        </Text>
+        <Text style={[styles.titleText(theme)]}>
+          {songData.lastSongName}
+        </Text>
+        <Text style={[styles.text(theme)]}>
+          {songData.lastSongArtist}
+        </Text>
+      </View>
     </View>
     <FlatList
       style={styles.flatListStyle}

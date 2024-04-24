@@ -19,23 +19,23 @@ import mainRoot from "./mainRoot";
 const mainStyleOptions = {
   layout: {
     componentBackgroundColor: {
-      light: '#fff',
-      dark: '#000',
+      light: '#ebeae0',
+      dark: '#13150a',
     },
     orientation: 'portrait',
   },
   statusBar: {
     backgroundColor: {
-      light: '#fff',
-      dark: '#000',
+      light: '#ebeae0',
+      dark: '#13150a',
     },
   },
   bottomTabs: {
     // translucent: true,
     // barStyle: 'black',
     backgroundColor: {
-      light: '#fff',
-      dark: '#000', // 121212
+      light: '#ebeae0',
+      dark: '#13150a', // 121212
     },
     tabsAttachMode: 'afterInitialTab',
     titleDisplayMode: 'alwaysShow',
@@ -64,13 +64,13 @@ const mainStyleOptions = {
     },
     background: {
       color: {
-        light: '#fff',
-        dark: '#000', // 1212
+        light: '#ebeae0',
+        dark: '#13150a', // 1212
       },
       // translucent: true,
     },
     title: {
-      fontSize: 20,
+      fontSize: 28,
       color: {
         light: '#000',
         dark: '#f2ee6e',
