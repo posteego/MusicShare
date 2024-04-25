@@ -50,7 +50,7 @@ const topBar = (title, subtitle = null, leftButtons, rightButtons) => (
     ...title && {
       title: {
         text: title,
-        // fontSize: 24,
+        fontSize: title == 'BeatBridge' ? 24 : 20,
         fontWeight: 'bold',
         alignment: 'center',
         // component: {

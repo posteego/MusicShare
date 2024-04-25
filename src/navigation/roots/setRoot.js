@@ -70,7 +70,7 @@ const mainStyleOptions = {
       // translucent: true,
     },
     title: {
-      fontSize: 24,
+      // fontSize: 24,
       color: {
         light: 'hsl(58, 20%, 10%)',
         dark: 'hsl(58, 80%, 69%)',
