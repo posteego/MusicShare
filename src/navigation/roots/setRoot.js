@@ -77,7 +77,7 @@ const mainStyleOptions = {
       },
     },
     subtitle: {
-      color: 'hsl(58, 10%, 50%)',
+      color: 'hsl(58, 10%, 40%)',
       fontSize: 8,
     },
   },

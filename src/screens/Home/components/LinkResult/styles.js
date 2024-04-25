@@ -30,7 +30,7 @@ export default StyleSheet.create({
     marginVertical: 3,
   }),
   subtext: (theme) => ({
-    color: theme === 'dark' ? 'hsl(58, 80%, 69.00%)' : 'hsl(58, 10%, 50%)',
+    color: 'hsl(58, 10%, 40%)',
     fontSize: 10,
     fontWeight: '600',
   }),
@@ -64,13 +64,13 @@ export default StyleSheet.create({
     marginVertical: 2,
     borderRadius: 4,
     borderWidth: 2,
-    borderColor: theme === 'dark' ? 'hsl(58, 100%, 85%)' : 'hsl(58, 20%, 10%)',
-    backgroundColor: theme === 'dark' ? 'hsl(58, 40%, 85%)' : 'hsl(58, 50%, 85%)'// 'hsl(58, 40%, 85%),
+    borderColor: theme === 'dark' ? 'hsl(58, 100%, 90%)' : 'hsl(58, 20%, 10%)',
+    backgroundColor: theme === 'dark' ? 'hsl(58, 50%, 75%)' : 'hsl(58, 50%, 85%)'// 'hsl(58, 40%, 85%),
   }),
   platformText: (theme) => ({
     fontSize: 16,
     fontWeight: '800',
-    color: theme === 'dark' ? 'black' : '#FFFFFF',
+    color: theme === 'dark' ? 'black' : 'hsl(58, 20%, 10%)',
     textAlign: 'center',
   }),
 });
