@@ -47,11 +47,11 @@ const mainStyleOptions = {
     selectedFontSize: 12,
     textColor: '#c0c0c0',
     selectedTextColor: {
-      light: '#000',
+      light: 'hsl(58, 20%, 10%)',
       dark: 'hsl(58, 80%, 69.00%)',
     },
     selectedIconColor: {
-      light: '#000',
+      light: 'hsl(58, 20%, 10%)',
       dark: 'hsl(58, 80%, 69.00%)',
     },
   },
@@ -72,8 +72,8 @@ const mainStyleOptions = {
     title: {
       fontSize: 24,
       color: {
-        light: '#000',
-        dark: 'hsl(58, 80%, 69.00%)',
+        light: 'hsl(58, 20%, 10%)',
+        dark: 'hsl(58, 80%, 69%)',
       },
     },
     subtitle: {
