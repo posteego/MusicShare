@@ -9,7 +9,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Clipboard from '@react-native-clipboard/clipboard';
 import isUrl from 'validator/lib/isURL';
 import { useSongLink } from 'hooks';
-import { useSongStore } from 'stores';
 import { LinkResult } from './components';
 import styles from './styles';
 
@@ -73,8 +72,8 @@ const Home_Preview = ({ key }) => {
         <>
           <Icon
             name="arrow-up"
-            size={28}
-            color={pressed ? '#f2ee6e' : '#405FDF'}
+            size={32}
+            color={pressed ? '#f2ee6e' : 'black'}
           />
         </>
       )}

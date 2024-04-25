@@ -1,13 +1,25 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  demoContainer: {
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 130,
+    height: 40,
+    padding: 8,
+    marginTop: 8,
+    backgroundColor: 'white',
+    borderRadius: 4,
+    borderWidth: 2,
+  },
   rowContainer: (theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: theme === 'dark' ? 'hsl(58, 20%, 6%)' : 'hsl(58, 50%, 90%)', // '#13150a'
     paddingVertical: 8,
     marginHorizontal: 8,
-    marginVertical: 8,
+    marginVertical: 4,
     borderWidth: 4,
     borderRadius: 8,
     borderColor: theme === 'dark' ? 'white' : 'hsl(58, 20%, 10%)',

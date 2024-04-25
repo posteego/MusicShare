@@ -63,9 +63,6 @@ const LinkResult = ({ loading, setToastName, setShowToast }) => {
             Alert.alert(`This url might be broken: ${item.url}`);
           }
         }}
-        onPressIn={() => {
-
-        }}
       >
         <View
           style={[styles.platformContainer(theme)]}
@@ -131,26 +128,47 @@ const LinkResult = ({ loading, setToastName, setShowToast }) => {
           textAlign: 'center',
           marginBottom: 20,
         }]}>
-          Convert your music link to other services
+          Convert your music links
         </Text>
         <View>
-          <Text style={[styles.text(theme), { paddingHorizontal: 24, marginBottom: 0 }]}>
-            1. Copy music link from source (e.g Spotify)*
-          </Text>
-          {/* <Text style={[styles.subtext(theme), { paddingHorizontal: 24, marginVertical: 0 }]}>
-            Sources supported by Odesli.co
-          </Text> */}
           <Text style={[styles.text(theme), { paddingHorizontal: 24, marginTop: 10, marginBottom: 4 }]}>
-            2. Paste link by pressing the <Icon name="arrow-up" size={20} color={theme === 'dark' ? '#f2ee6e' : 'black'} /> button
+            1. Paste link by pressing <Icon name="arrow-up" size={20} color={theme === 'dark' ? '#f2ee6e' : 'black'} /> button
           </Text>
           <Text style={[styles.subtext(theme), { paddingHorizontal: 24, marginVertical: 0 }]}>
             Make sure to "Allow Paste"
           </Text>
           <Text style={[styles.text(theme), { paddingHorizontal: 24, marginTop: 10 }]}>
-            3. Tap to <Text style={{ fontSize: 24, fontWeight: '900' }}>COPY</Text> link, Hold to <Text style={{ fontSize: 24, fontWeight: '900' }}>OPEN</Text> link
+            2. <Text style={{ fontSize: 24 }}>Tap</Text> to <Text style={{ fontSize: 24, fontWeight: '900' }}>COPY</Text>, <Text style={{ fontSize: 24 }}>Hold</Text> to <Text style={{ fontSize: 24, fontWeight: '900' }}>OPEN</Text>
           </Text>
+          <TouchableOpacity
+            style={styles.demoContainer}
+            onPress={() => {
+              /* copy URL to clipboard and show success toast */
+              Clipboard.setString('https://spotify.link/FQVaGmSF5Ib');
+              setToastName('Spotify');
+              setShowToast(true);
+              setTimeout(() => setShowToast(false), 2000);
+            }}
+            delayLongPress={500}
+            onLongPress={() => {
+              /* open URL in dedicated app */
+              const isSupported = Linking.canOpenURL('https://spotify.link/FQVaGmSF5Ib');
+              if (isSupported) {
+                Linking.openURL('https://spotify.link/FQVaGmSF5Ib');
+                // call toast with correct modifiers
+              } else {
+                Alert.alert(`This url might be broken: https://spotify.link/FQVaGmSF5Ib`);
+              }
+            }}
+          >
+            <FastImage
+              source={require('assets/logos_black/spotify-black.png')}
+              style={{ height: 25, width: 130 }}
+              resizeMode='contain'
+            />
+          </TouchableOpacity>
           <Text style={[styles.text(theme), { paddingHorizontal: 24, marginVertical: 10 }]}>
-            4. Set default platform to automate conversion
+            3. Set default platform in About tab
           </Text>
         </View>
       </View>
