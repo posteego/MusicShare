@@ -19,23 +19,23 @@ import mainRoot from "./mainRoot";
 const mainStyleOptions = {
   layout: {
     componentBackgroundColor: {
-      light: '#ebeae0',
-      dark: '#13150a',
+      light: 'hsl(55, 21.60%, 90.00%)',
+      dark: 'hsl(58, 35.50%, 6.10%)',
     },
     orientation: 'portrait',
   },
   statusBar: {
     backgroundColor: {
-      light: '#ebeae0',
-      dark: '#13150a',
+      light: 'hsl(55, 21.60%, 90.00%)',
+      dark: 'hsl(58, 35.50%, 6.10%)',
     },
   },
   bottomTabs: {
     // translucent: true,
     // barStyle: 'black',
     backgroundColor: {
-      light: '#ebeae0',
-      dark: '#13150a', // 121212
+      light: 'hsl(55, 21.60%, 90.00%)',
+      dark: 'hsl(71, 35.50%, 6.10%)', // 121212
     },
     tabsAttachMode: 'afterInitialTab',
     titleDisplayMode: 'alwaysShow',
@@ -48,11 +48,11 @@ const mainStyleOptions = {
     textColor: '#c0c0c0',
     selectedTextColor: {
       light: '#000',
-      dark: '#f2ee6e',
+      dark: 'hsl(58, 80%, 69.00%)',
     },
     selectedIconColor: {
       light: '#000',
-      dark: '#f2ee6e',
+      dark: 'hsl(58, 80%, 69.00%)',
     },
   },
   topBar: {
@@ -70,15 +70,15 @@ const mainStyleOptions = {
       // translucent: true,
     },
     title: {
-      fontSize: 28,
+      fontSize: 24,
       color: {
         light: '#000',
-        dark: '#f2ee6e',
+        dark: 'hsl(58, 80%, 69.00%)',
       },
     },
     subtitle: {
-      color: '#495057',
-      fontSize: 14,
+      color: 'hsl(58, 10%, 50%)',
+      fontSize: 8,
     },
   },
 };

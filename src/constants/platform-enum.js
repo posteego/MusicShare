@@ -22,7 +22,7 @@ const PLATFORMS = Object.freeze({
   youtubeMusic: {
     id: 'youtubeMusic',
     name: 'Youtube Music',
-    logo_path: require('assets/logos_black/youtube-music-black.png'),
+    logo_path: require('assets/logos_black/yt-music-black.png'),
   },
   google: {
     id: 'google',
@@ -52,12 +52,12 @@ const PLATFORMS = Object.freeze({
   amazonStore: {
     id: 'amazonStore',
     name: 'Amazon Store',
-    logo_path: require('assets/logos_black/amazon-trim.png'),
+    logo_path: require('assets/logos_black/a-black.png'),
   },
   amazonMusic: {
     id: 'amazonMusic',
     name: 'Amazon Music',
-    logo_path: require('assets/logos_black/amazon-music.png'),
+    logo_path: require('assets/logos_black/am-black.png'),
   },
   soundcloud: {
     id: 'soundcloud',
@@ -103,7 +103,7 @@ const PLATFORMS = Object.freeze({
   bandcamp: {
     id: 'bandcamp',
     name: 'Bandcamp',
-    logo_path: require('assets/logos_black/bandcamp-trim.png'),
+    logo_path: require('assets/logos_black/bandcamp-dark.png'),
   },
 });
 

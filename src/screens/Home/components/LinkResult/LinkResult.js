@@ -95,7 +95,7 @@ const LinkResult = ({ loading, setToastName, setShowToast }) => {
           source={{ uri: songData.lastSongThumbnail, priority: 'high' }}
         />
       </View>
-      <View style={{ flex: 0.5, justifyContent: 'center' }}>
+      <View style={{ flex: 0.6, justifyContent: 'center' }}>
         <Text style={[styles.subtext(theme)]}>
           {songData.lastSongType} from {capitalizeLetters_ui(songData.lastSongOrigin)}
         </Text>
