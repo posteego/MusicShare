@@ -65,7 +65,7 @@ const Home_Preview = ({ key }) => {
   const PasteButton = () => (
     <Pressable
       onPress={handleNewShare}
-      style={({ pressed }) => [styles.shareButton(pressed)]}
+      style={({ pressed }) => [styles.shareButton(pressed, theme)]}
       android_ripple={styles.androidRipple}
     >
       {({ pressed }) => (

@@ -28,11 +28,11 @@ export default StyleSheet.create({
     height: 200,
     marginVertical: 5,
   },
-  shareButton: (pressed) => ({
+  shareButton: (pressed, theme) => ({
     position: 'absolute',
     alignSelf: 'center',
     bottom: 5,
-    backgroundColor: pressed ? 'black' : 'hsl(58, 50%, 85%)',
+    backgroundColor: theme === 'dark' ? (pressed ? 'black' : 'hsl(58, 50%, 75%)') : ( pressed ? 'black' : 'hsl(58, 50%, 85%)'),
     borderWidth: 2,
     height: 60,
     width: 60,
