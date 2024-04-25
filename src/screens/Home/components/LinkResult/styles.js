@@ -7,7 +7,7 @@ export default StyleSheet.create({
     backgroundColor: theme === 'dark' ? 'hsl(58, 20%, 6%)' : 'hsl(58, 50%, 90%)', // '#13150a'
     paddingVertical: 8,
     marginHorizontal: 8,
-    marginBottom: 8,
+    marginVertical: 8,
     borderWidth: 4,
     borderRadius: 8,
     borderColor: theme === 'dark' ? 'white' : 'hsl(58, 20%, 10%)',
