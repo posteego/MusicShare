@@ -86,7 +86,7 @@ const LinkResult = ({ loading, setToastName, setShowToast }) => {
 
   return songData.lastSongUrl ? <>
     <View style={styles.rowContainer(theme)}>
-      <View style={{ flex: 0.4 }}>
+      <View style={{ flex: 0.4, alignItems: 'center' }}>
         <FastImage
           style={styles.coverArt}
           source={{ uri: songData.lastSongThumbnail, priority: 'high' }}

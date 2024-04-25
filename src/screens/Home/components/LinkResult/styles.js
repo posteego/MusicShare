@@ -15,14 +15,13 @@ export default StyleSheet.create({
   },
   rowContainer: (theme) => ({
     flexDirection: 'row',
-    justifyContent: 'space-between',
     backgroundColor: theme === 'dark' ? 'hsl(58, 20%, 6%)' : 'hsl(58, 50%, 90%)', // '#13150a'
-    paddingVertical: 8,
+    padding: 8,
     marginHorizontal: 8,
     marginVertical: 4,
     borderWidth: 4,
     borderRadius: 8,
-    borderColor: theme === 'dark' ? 'white' : 'hsl(58, 20%, 10%)',
+    borderColor: theme === 'dark' ? 'hsl(58, 100%, 85%)' : 'hsl(58, 20%, 10%)',
   }),
   titleText: (theme) => ({
     color: theme === 'dark' ? 'hsl(58, 80%, 69.00%)' : '#000',
@@ -46,7 +45,6 @@ export default StyleSheet.create({
     borderColor: 'hsl(58, 20%, 10%)',
     borderWidth: 1,
     borderRadius: 2,
-    marginHorizontal: 12,
   },
   logos: {
     width: 130,
