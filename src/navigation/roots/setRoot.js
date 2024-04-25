@@ -35,7 +35,7 @@ const mainStyleOptions = {
     // barStyle: 'black',
     backgroundColor: {
       light: 'hsl(55, 21.60%, 90.00%)',
-      dark: 'hsl(71, 35.50%, 6.10%)', // 121212
+      dark: 'hsl(58, 35.50%, 6.10%)', // 121212
     },
     tabsAttachMode: 'afterInitialTab',
     titleDisplayMode: 'alwaysShow',
