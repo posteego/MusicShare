@@ -30,11 +30,12 @@ export default StyleSheet.create({
     fontSize: 18,
     fontWeight: '800',
   }),
-  dropdownButton: {
-    backgroundColor: '#776DF2',
+  dropdownButton: (theme) => ({
+    backgroundColor: theme == 'dark' ?
+      'hsl(148,75%,20%)' : 'hsl(148,75%,55%)',
     borderRadius: 4,
     width: 340,
-  },
+  }),
   dropdown: (theme) => ({
     backgroundColor: theme === 'dark' ? '#776DF2' : '#ffda5c',
     height: '60%',

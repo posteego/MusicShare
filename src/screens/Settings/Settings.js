@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
 import { string } from 'prop-types';
 import {
-  useColorScheme, View, Text,
+  useColorScheme, ScrollView, View, Text,
   TouchableOpacity,
 } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
+import { AnimatedDropdown } from 'components';
 import { useSongStore } from 'stores';
 import { PLATFORMS } from 'constants';
 import styles from './styles';
@@ -50,7 +51,8 @@ const Settings = ({ key }) => {
         <Text style={[styles.buttonLabel(theme)]}>DEFAULT PLATFORM</Text>
         <Text style={[styles.buttonLabel(theme), { fontWeight: '300' }]}>Select to open external links automatically</Text>
       </View>
-      <SelectDropdown
+      <AnimatedDropdown data={platformObjEnum} theme={theme} />
+      {/* <SelectDropdown
         ref={dropdownRef}
         onSelect={(selectedItem, idx) => {
           const plat = selectedItem.id === 'appleMusic' ? 'itunes' : selectedItem.id.toLowerCase();
@@ -63,7 +65,7 @@ const Settings = ({ key }) => {
           return item.name;
         }}
         dropdownStyle={styles.dropdown(theme)}
-        buttonStyle={[styles.dropdownButton]}
+        buttonStyle={[styles.dropdownButton(theme)]}
         buttonTextStyle={[styles.buttonText(theme), { color: 'white' }]}
         rowStyle={[styles.dropdownRow(theme)]}
         rowTextStyle={[styles.dropdownRowText(theme)]}
@@ -74,7 +76,7 @@ const Settings = ({ key }) => {
         data={platformObjEnum}
         disableAutoScroll={true}
         showsVerticalScrollIndicator={false}
-      />
+      /> */}
       <View style={{ position: 'absolute', bottom: 75 }}>
         <View style={{ marginHorizontal: 25, marginBottom: 10 }}>
           <Text style={[styles.buttonLabel(theme)]}>RESET</Text>
