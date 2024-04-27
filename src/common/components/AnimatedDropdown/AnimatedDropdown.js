@@ -55,7 +55,7 @@ const AnimatedDropdown = ({ data, theme }) => {
     <View
       style={{
         marginVertical: 4,
-        padding: 16,
+        padding: 8,
       }}
     >
       <Text

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { string } from 'prop-types';
 import {
-  useColorScheme, ScrollView, View, Text,
+  useColorScheme, FlatList, ScrollView, View, Text,
   TouchableOpacity,
 } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
@@ -43,15 +43,17 @@ const Settings = ({ key }) => {
 
   return (
     <View style={{ flex: 1, alignItems: 'center' }}>
-      <View style={{ marginHorizontal: 25, marginTop: 5, marginBottom: 20 }}>
+      <View style={{ flexBasis: 120, marginHorizontal: 16, marginBottom: 8 }}>
         <Text style={styles.description(theme)}>Beatbridge was designed as a personal tool to share music links with friends regardless of the platforms being used.</Text>
         <Text style={styles.description(theme)}>This app is not intended to convert playlists.</Text>
       </View>
-      <View style={{ marginHorizontal: 25, marginBottom: 10 }}>
+      <View style={{ flexBasis: 35, marginBottom: 10 }}>
         <Text style={[styles.buttonLabel(theme)]}>DEFAULT PLATFORM</Text>
         <Text style={[styles.buttonLabel(theme), { fontWeight: '300' }]}>Select to open external links automatically</Text>
       </View>
-      <AnimatedDropdown data={platformObjEnum} theme={theme} />
+      <View style={{ flexGrow: 1, marginBottom: 16 }}>
+        <AnimatedDropdown data={platformObjEnum} theme={theme} />
+      </View>
       {/* <SelectDropdown
         ref={dropdownRef}
         onSelect={(selectedItem, idx) => {
@@ -77,7 +79,7 @@ const Settings = ({ key }) => {
         disableAutoScroll={true}
         showsVerticalScrollIndicator={false}
       /> */}
-      <View style={{ position: 'absolute', bottom: 75 }}>
+      <View style={{ flexGrow: 1 }}>
         <View style={{ marginHorizontal: 25, marginBottom: 10 }}>
           <Text style={[styles.buttonLabel(theme)]}>RESET</Text>
           <Text style={[styles.buttonLabel(theme), { fontWeight: '300' }]}>Delete all data</Text>
@@ -95,17 +97,23 @@ const Settings = ({ key }) => {
           </View>
         </TouchableOpacity>
       </View>
-      <View
-        style={{
-          position: 'absolute',
-          alignSelf: 'center',
-          marginVertical: 20,
-          bottom: 0,
-        }}
-      >
+      <View style={{ flexShrink: 1 }}>
         <Text style={{ color: '#777777' }}>Powered by Odesli.co</Text>
       </View>
     </View>
+    // <View style={{ flex: 1 }}>
+    //   <View style={{ flexBasis: 60 }}>
+    //     <Text>This is BeatBridge</Text>
+    //     <Text>Not meant for playlists</Text>
+    //   </View>
+    //   <View style={{ flexGrow: 1 }}>
+    //     <AnimatedDropdown data={platformObjEnum} theme={theme} />
+    //   </View>
+    //   <View style={{ flexShrink: 1 }}>
+    //     <Text>Reset Cache</Text>
+    //     <Text>Powered by Odesli.co</Text>
+    //   </View>
+    // </View>
   );
 };
 
