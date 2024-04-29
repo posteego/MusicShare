@@ -102,7 +102,7 @@ const Settings = ({ key }) => {
       <View style={{ flexGrow: 1 }}>
         <View style={{ marginHorizontal: 25, marginBottom: 10 }}>
           <Text style={[styles.buttonLabel(theme)]}>RESET</Text>
-          <Text style={[styles.buttonLabel(theme), { fontWeight: '300' }]}>Delete all data</Text>
+          <Text style={[styles.buttonLabel(theme), { fontWeight: '300' }]}>Remove default platform and latest link pasted</Text>
         </View>
         <TouchableOpacity
           key={'reset-cache-btn'}
@@ -113,7 +113,7 @@ const Settings = ({ key }) => {
           }}
           disabled={shouldDisableReset}
         >
-          <View style={[styles.buttonContainer(theme, shouldDisableReset), { backgroundColor: shouldDisableReset ? '#AAA' : '#FC5B81' }]}>
+          <View style={[styles.buttonContainer(theme, shouldDisableReset), { backgroundColor: shouldDisableReset ? '#AAA' : 'hsl(320, 80%, 70%)' }]}>
             <Text style={[styles.buttonText(theme)]}>Reset Data</Text>
           </View>
         </TouchableOpacity>

@@ -44,7 +44,7 @@ const Home_Preview = ({ key }) => {
       setTimeout(() => {
         setShowToast(false);
         setStatus(null);
-      }, 2000);
+      }, 5000);
     }
   }, [error]);
 

@@ -9,7 +9,7 @@ export default StyleSheet.create({
     height: 40,
     padding: 8,
     marginTop: 8,
-    backgroundColor: 'hsl(58, 100%, 85%)',
+    backgroundColor: 'hsl(58, 50%, 85%)',
     borderRadius: 4,
     borderWidth: 2,
   },

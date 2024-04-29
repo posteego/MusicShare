@@ -60,7 +60,7 @@ const AnimatedDropdown = ({
   }
 
   const renderListItem = ({ item }) => {
-    const backgroundColor = item.id === selectedId ? 'hsl(58, 50%, 55%)' : 'hsl(58, 50%, 85%)';
+    const backgroundColor = item.id === selectedId ? 'hsl(58, 70%, 60%)' : 'hsl(58, 50%, 85%)';
 
     return (
       <Pressable
@@ -78,7 +78,6 @@ const AnimatedDropdown = ({
       >
         <Text
           style={{
-            textAlign: 'right',
             fontSize: 16,
             fontWeight: '600',
           }}

@@ -38,10 +38,7 @@ const LinkResult = ({ loading, setToastName, setShowToast }) => {
   const songData = useSongStore();
 
   const wh = Dimensions.get('window').height;
-  console.log('wh', JSON.stringify(wh, null, 2));
   
-  
-
   const renderPlatformsAvailable = ({ item }) => {
     let name = PLATFORMS[item.name].name;
     let src = PLATFORMS[item.name].logo_path;
@@ -55,7 +52,7 @@ const LinkResult = ({ loading, setToastName, setShowToast }) => {
           Clipboard.setString(item.url);
           setToastName(name);
           setShowToast(true);
-          setTimeout(() => setShowToast(false), 2000);
+          setTimeout(() => setShowToast(false), 1500);
         }}
         delayLongPress={500}
         onLongPress={() => {
