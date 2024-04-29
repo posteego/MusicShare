@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Animated, { FadeIn, FadeOut, useAnimatedProps, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
-import { string, array } from 'prop-types';
+import { string, array, func } from 'prop-types';
 import {
   Pressable, View, Text,
 } from 'react-native';
@@ -9,14 +9,26 @@ import styles from './styles';
 const propTypes = {
   theme: string,
   data: array,
+  setSelectedId: func,
+  selectedId: string,
+  onSelect: func,
+  setSelectedName: func,
+  selectedName: string,
 };
 
 const defaultProps = {
   theme: null,
   data: null,
+  setSelectedId: () => { },
+  selectedId: null,
+  onSelect: () => { },
+  setSelectedName: () => {},
+  selectedName: null,
 };
 
-const AnimatedDropdown = ({ data, theme }) => {
+const AnimatedDropdown = ({
+  data, setSelectedId, selectedId, setSelectedName, selectedName, onSelect,
+}) => {
   const height = useSharedValue(50);
   const selectTextOpacity = useSharedValue(0);
   const defaultPlatOpacity = useSharedValue(100);
@@ -43,32 +55,39 @@ const AnimatedDropdown = ({ data, theme }) => {
     }),
   }));
 
-  const selectPlatTextAnimation = useAnimatedProps(() => ({
-    opacity: withTiming(selectTextOpacity.value),
-  }));
+  const onSelectItem = (item) => {
+    onSelect && onSelect(item);
+  }
 
-  const defaultPlatAnimation = useAnimatedProps(() => ({
-    opacity: withTiming(defaultPlatOpacity.value),
-  }));
+  const renderListItem = ({ item }) => {
+    const backgroundColor = item.id === selectedId ? 'hsl(58, 50%, 55%)' : 'hsl(58, 50%, 85%)';
 
-  const renderListItem = ({ item }) => (
-    <View
-      style={{
-        marginVertical: 4,
-        padding: 8,
-      }}
-    >
-      <Text
+    return (
+      <Pressable
         style={{
-          textAlign: 'right',
-          fontSize: 16,
-          fontWeight: '600',
+          marginVertical: 4,
+          padding: 8,
+          backgroundColor,
+        }}
+        onPress={() => {
+          setSelectedId(item.id);
+          setSelectedName(item.name);
+          onSelectItem(item);
+          handlePress();
         }}
       >
-        {item.name}
-      </Text>
-    </View>
-  );
+        <Text
+          style={{
+            textAlign: 'right',
+            fontSize: 16,
+            fontWeight: '600',
+          }}
+        >
+          {item.name}
+        </Text>
+      </Pressable>
+    )
+  };
 
   return (
     <Animated.View
@@ -88,10 +107,14 @@ const AnimatedDropdown = ({ data, theme }) => {
         onPress={handlePress}
       >
         <View style={{ alignItems: 'center', justifyContent: 'center', height: 28 }}>
-          {show ? (
-            <Animated.Text style={{ fontSize: 16, fontWeight: '600' }}>Select Platform</Animated.Text>
+          {selectedId ? (
+            show ? (
+              <Text style={{ fontSize: 16, fontWeight: '600' }}>Select Platform</Text>
+            ) : (
+                <Text style={{ fontSize: 16, fontWeight: '600' }}>{selectedName}</Text>
+            )
           ) : (
-            <Animated.Text style={{ fontSize: 16, fontWeight: '600' }}>Apple Music</Animated.Text>
+              <Text style={{ fontSize: 16, fontWeight: '600' }}>Select Platform</Text>
           )}
         </View>
       </Pressable>
@@ -105,6 +128,7 @@ const AnimatedDropdown = ({ data, theme }) => {
             marginTop: 8
           }}
           data={data}
+          extraData={selectedId}
           renderItem={renderListItem}
           keyExtractor={item => item.id}
         />

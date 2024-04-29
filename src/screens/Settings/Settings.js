@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { string } from 'prop-types';
 import {
   useColorScheme, FlatList, ScrollView, View, Text,
@@ -23,7 +23,17 @@ const Settings = ({ key }) => {
   const theme = useColorScheme();
   const data = useSongStore();
   const setDefaultPlatform = useSongStore((state) => state.setDefaultPlatform);
+  const [selectedId, setSelectedId] = useState(null);
+  const [selectedName, setSelectedName] = useState(null);
   const resetCache = useSongStore((state) => state.reset);
+
+  useEffect(() => {
+    if (data.preferredPlatform !== null) {
+      setSelectedId(data.preferredPlatform);
+      setSelectedName(PLATFORMS[data.preferredPlatform].name);
+    }
+  }, []);
+  
 
   // just check if artist field is null for cache
   const shouldDisableReset = !(data.lastSongArtist !== null || data.preferredPlatform !== null);
@@ -39,8 +49,6 @@ const Settings = ({ key }) => {
   const platformEnum = platformObjEnum.map((plat) => plat.name);
   platformEnum.sort();
 
-  const dropdownRef = useRef({});
-
   return (
     <View style={{ flex: 1, alignItems: 'center' }}>
       <View style={{ flexBasis: 120, marginHorizontal: 16, marginBottom: 8 }}>
@@ -52,7 +60,19 @@ const Settings = ({ key }) => {
         <Text style={[styles.buttonLabel(theme), { fontWeight: '300' }]}>Select to open external links automatically</Text>
       </View>
       <View style={{ flexGrow: 1, marginBottom: 16 }}>
-        <AnimatedDropdown data={platformObjEnum} theme={theme} />
+        <AnimatedDropdown
+          theme={theme}
+          data={platformObjEnum}
+          setSelectedId={setSelectedId}
+          selectedId={selectedId}
+          onSelect={(selectedItem) => {
+            const plat = selectedItem.id === 'appleMusic' ?
+              'itunes' : selectedItem.id;
+              setDefaultPlatform({ preferredPlatform: plat });
+          }} // use setDefaultPlatform here
+          selectedName={selectedName}
+          setSelectedName={setSelectedName}
+        />
       </View>
       {/* <SelectDropdown
         ref={dropdownRef}
@@ -88,7 +108,8 @@ const Settings = ({ key }) => {
           key={'reset-cache-btn'}
           onPress={() => {
             resetCache();
-            dropdownRef.current.reset();
+            setSelectedId(null);
+            setSelectedName(null);
           }}
           disabled={shouldDisableReset}
         >
