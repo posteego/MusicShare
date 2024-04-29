@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { object, bool, func } from 'prop-types';
 import {
-  useColorScheme, Linking,
+  useColorScheme, Linking, Dimensions,
   View, Text, FlatList, TouchableOpacity,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
@@ -36,6 +36,11 @@ const capitalizeLetters_ui = (words) => {
 const LinkResult = ({ loading, setToastName, setShowToast }) => {
   const theme = useColorScheme();
   const songData = useSongStore();
+
+  const wh = Dimensions.get('window').height;
+  console.log('wh', JSON.stringify(wh, null, 2));
+  
+  
 
   const renderPlatformsAvailable = ({ item }) => {
     let name = PLATFORMS[item.name].name;
@@ -106,7 +111,7 @@ const LinkResult = ({ loading, setToastName, setShowToast }) => {
     </View>
     <FlatList
       style={styles.flatListStyle}
-      scrollEnabled={false}
+      scrollEnabled={wh < 850}
       numColumns={2}
       data={JSON.parse(songData.platformsAvailable) ?? null}
       renderItem={renderPlatformsAvailable}
