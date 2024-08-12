@@ -8,6 +8,54 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* BeatBridgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BeatBridgeTests.m */; };
+		0A7C163E2BDF924E00CF29B2 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C163D2BDF924E00CF29B2 /* Messages.framework */; };
+		0A7C16412BDF924E00CF29B2 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7C16402BDF924E00CF29B2 /* MessagesViewController.swift */; };
+		0A7C16442BDF924E00CF29B2 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0A7C16432BDF924E00CF29B2 /* Base */; };
+		0A7C16462BDF924F00CF29B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A7C16452BDF924F00CF29B2 /* Assets.xcassets */; };
+		0A7C164A2BDF924F00CF29B2 /* BeatBridgeMessageExt.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0A7C163C2BDF924E00CF29B2 /* BeatBridgeMessageExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0A7C16502BDF969B00CF29B2 /* libDoubleConversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C164F2BDF969B00CF29B2 /* libDoubleConversion.a */; };
+		0A7C16522BDF969B00CF29B2 /* libfmt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16512BDF969B00CF29B2 /* libfmt.a */; };
+		0A7C16542BDF969B00CF29B2 /* libglog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16532BDF969B00CF29B2 /* libglog.a */; };
+		0A7C16562BDF969B00CF29B2 /* hermes.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16552BDF969B00CF29B2 /* hermes.xcframework */; };
+		0A7C16582BDF969B00CF29B2 /* libHMSegmentedControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16572BDF969B00CF29B2 /* libHMSegmentedControl.a */; };
+		0A7C165A2BDF969B00CF29B2 /* liblibevent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16592BDF969B00CF29B2 /* liblibevent.a */; };
+		0A7C165C2BDF969B00CF29B2 /* liblibwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C165B2BDF969B00CF29B2 /* liblibwebp.a */; };
+		0A7C165E2BDF969B00CF29B2 /* libMMKV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C165D2BDF969B00CF29B2 /* libMMKV.a */; };
+		0A7C16602BDF969B00CF29B2 /* libMMKVCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C165F2BDF969B00CF29B2 /* libMMKVCore.a */; };
+		0A7C16622BDF969B00CF29B2 /* libPods-BeatBridge-BeatBridgeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16612BDF969B00CF29B2 /* libPods-BeatBridge-BeatBridgeTests.a */; };
+		0A7C16642BDF969B00CF29B2 /* libRCT-Folly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16632BDF969B00CF29B2 /* libRCT-Folly.a */; };
+		0A7C16662BDF969B00CF29B2 /* libRCTTypeSafety.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16652BDF969B00CF29B2 /* libRCTTypeSafety.a */; };
+		0A7C16682BDF969B00CF29B2 /* libReact-bridging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16672BDF969B00CF29B2 /* libReact-bridging.a */; };
+		0A7C166A2BDF969B00CF29B2 /* libReact-Codegen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16692BDF969B00CF29B2 /* libReact-Codegen.a */; };
+		0A7C166C2BDF969B00CF29B2 /* libReact-Core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C166B2BDF969B00CF29B2 /* libReact-Core.a */; };
+		0A7C166E2BDF969B00CF29B2 /* libReact-CoreModules.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C166D2BDF969B00CF29B2 /* libReact-CoreModules.a */; };
+		0A7C16702BDF969B00CF29B2 /* libReact-cxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C166F2BDF969B00CF29B2 /* libReact-cxxreact.a */; };
+		0A7C16722BDF969B00CF29B2 /* libReact-hermes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16712BDF969B00CF29B2 /* libReact-hermes.a */; };
+		0A7C16742BDF969B00CF29B2 /* libReact-jsi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16732BDF969B00CF29B2 /* libReact-jsi.a */; };
+		0A7C16762BDF969B00CF29B2 /* libReact-jsiexecutor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16752BDF969B00CF29B2 /* libReact-jsiexecutor.a */; };
+		0A7C16782BDF969B00CF29B2 /* libReact-jsinspector.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16772BDF969B00CF29B2 /* libReact-jsinspector.a */; };
+		0A7C167A2BDF969B00CF29B2 /* libReact-logger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16792BDF969B00CF29B2 /* libReact-logger.a */; };
+		0A7C167C2BDF969B00CF29B2 /* libreact-native-mmkv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C167B2BDF969B00CF29B2 /* libreact-native-mmkv.a */; };
+		0A7C167E2BDF969B00CF29B2 /* libReact-perflogger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C167D2BDF969B00CF29B2 /* libReact-perflogger.a */; };
+		0A7C16802BDF969B00CF29B2 /* libReact-RCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C167F2BDF969B00CF29B2 /* libReact-RCTAnimation.a */; };
+		0A7C16822BDF969B00CF29B2 /* libReact-RCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16812BDF969B00CF29B2 /* libReact-RCTBlob.a */; };
+		0A7C16842BDF969B00CF29B2 /* libReact-RCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16832BDF969B00CF29B2 /* libReact-RCTImage.a */; };
+		0A7C16862BDF969B00CF29B2 /* libReact-RCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16852BDF969B00CF29B2 /* libReact-RCTLinking.a */; };
+		0A7C16882BDF969B00CF29B2 /* libReact-RCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16872BDF969B00CF29B2 /* libReact-RCTNetwork.a */; };
+		0A7C168A2BDF969B00CF29B2 /* libReact-RCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16892BDF969B00CF29B2 /* libReact-RCTSettings.a */; };
+		0A7C168C2BDF969B00CF29B2 /* libReact-RCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C168B2BDF969B00CF29B2 /* libReact-RCTText.a */; };
+		0A7C168E2BDF969B00CF29B2 /* libReact-RCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C168D2BDF969B00CF29B2 /* libReact-RCTVibration.a */; };
+		0A7C16902BDF969B00CF29B2 /* libReactCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C168F2BDF969B00CF29B2 /* libReactCommon.a */; };
+		0A7C16922BDF969B00CF29B2 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16912BDF969B00CF29B2 /* libReactNativeNavigation.a */; };
+		0A7C16942BDF969B00CF29B2 /* libRNCClipboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16932BDF969B00CF29B2 /* libRNCClipboard.a */; };
+		0A7C16962BDF969B00CF29B2 /* libRNFastImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16952BDF969B00CF29B2 /* libRNFastImage.a */; };
+		0A7C16982BDF969B00CF29B2 /* libRNReanimated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16972BDF969B00CF29B2 /* libRNReanimated.a */; };
+		0A7C169A2BDF969B00CF29B2 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C16992BDF969B00CF29B2 /* libRNVectorIcons.a */; };
+		0A7C169C2BDF969B00CF29B2 /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C169B2BDF969B00CF29B2 /* libSDWebImage.a */; };
+		0A7C169E2BDF969B00CF29B2 /* libSDWebImageWebPCoder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C169D2BDF969B00CF29B2 /* libSDWebImageWebPCoder.a */; };
+		0A7C16A02BDF969B00CF29B2 /* libYoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7C169F2BDF969B00CF29B2 /* libYoga.a */; };
+		0A7C16A12BDF969B00CF29B2 /* libPods-BeatBridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-BeatBridge.a */; };
+		0A7C16A22BDF96BF00CF29B2 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		0A996D8A2BA66FD000E554D5 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0A996D892BA66FD000E554D5 /* PrivacyInfo.xcprivacy */; };
 		0C80B921A6F3F58F76C31292 /* libPods-BeatBridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-BeatBridge.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
@@ -25,12 +73,81 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = BeatBridge;
 		};
+		0A7C16482BDF924F00CF29B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0A7C163B2BDF924E00CF29B2;
+			remoteInfo = BeatBridgeMessageExt;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0A7C164B2BDF924F00CF29B2 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0A7C164A2BDF924F00CF29B2 /* BeatBridgeMessageExt.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* BeatBridgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeatBridgeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* BeatBridgeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeatBridgeTests.m; sourceTree = "<group>"; };
+		0A7C163C2BDF924E00CF29B2 /* BeatBridgeMessageExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BeatBridgeMessageExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C163D2BDF924E00CF29B2 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		0A7C16402BDF924E00CF29B2 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		0A7C16432BDF924E00CF29B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		0A7C16452BDF924F00CF29B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0A7C16472BDF924F00CF29B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A7C164F2BDF969B00CF29B2 /* libDoubleConversion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libDoubleConversion.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16512BDF969B00CF29B2 /* libfmt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libfmt.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16532BDF969B00CF29B2 /* libglog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libglog.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16552BDF969B00CF29B2 /* hermes.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = hermes.xcframework; path = "Pods/hermes-engine/destroot/Library/Frameworks/universal/hermes.xcframework"; sourceTree = "<group>"; };
+		0A7C16572BDF969B00CF29B2 /* libHMSegmentedControl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libHMSegmentedControl.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16592BDF969B00CF29B2 /* liblibevent.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = liblibevent.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C165B2BDF969B00CF29B2 /* liblibwebp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = liblibwebp.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C165D2BDF969B00CF29B2 /* libMMKV.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMMKV.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C165F2BDF969B00CF29B2 /* libMMKVCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMMKVCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16612BDF969B00CF29B2 /* libPods-BeatBridge-BeatBridgeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-BeatBridge-BeatBridgeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16632BDF969B00CF29B2 /* libRCT-Folly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libRCT-Folly.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16652BDF969B00CF29B2 /* libRCTTypeSafety.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTTypeSafety.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16672BDF969B00CF29B2 /* libReact-bridging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-bridging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16692BDF969B00CF29B2 /* libReact-Codegen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-Codegen.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C166B2BDF969B00CF29B2 /* libReact-Core.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-Core.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C166D2BDF969B00CF29B2 /* libReact-CoreModules.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-CoreModules.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C166F2BDF969B00CF29B2 /* libReact-cxxreact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-cxxreact.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16712BDF969B00CF29B2 /* libReact-hermes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-hermes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16732BDF969B00CF29B2 /* libReact-jsi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-jsi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16752BDF969B00CF29B2 /* libReact-jsiexecutor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-jsiexecutor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16772BDF969B00CF29B2 /* libReact-jsinspector.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-jsinspector.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16792BDF969B00CF29B2 /* libReact-logger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-logger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C167B2BDF969B00CF29B2 /* libreact-native-mmkv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-mmkv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C167D2BDF969B00CF29B2 /* libReact-perflogger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-perflogger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C167F2BDF969B00CF29B2 /* libReact-RCTAnimation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTAnimation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16812BDF969B00CF29B2 /* libReact-RCTBlob.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTBlob.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16832BDF969B00CF29B2 /* libReact-RCTImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTImage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16852BDF969B00CF29B2 /* libReact-RCTLinking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTLinking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16872BDF969B00CF29B2 /* libReact-RCTNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTNetwork.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16892BDF969B00CF29B2 /* libReact-RCTSettings.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTSettings.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C168B2BDF969B00CF29B2 /* libReact-RCTText.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTText.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C168D2BDF969B00CF29B2 /* libReact-RCTVibration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libReact-RCTVibration.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C168F2BDF969B00CF29B2 /* libReactCommon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReactCommon.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16912BDF969B00CF29B2 /* libReactNativeNavigation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReactNativeNavigation.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16932BDF969B00CF29B2 /* libRNCClipboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNCClipboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16952BDF969B00CF29B2 /* libRNFastImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNFastImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16972BDF969B00CF29B2 /* libRNReanimated.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNReanimated.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16992BDF969B00CF29B2 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C169B2BDF969B00CF29B2 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C169D2BDF969B00CF29B2 /* libSDWebImageWebPCoder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSDWebImageWebPCoder.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C169F2BDF969B00CF29B2 /* libYoga.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libYoga.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7C16A32BDF973900CF29B2 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		0A996D892BA66FD000E554D5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		0ABA0E952915F31A008AFBC9 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* BeatBridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeatBridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +172,57 @@
 			buildActionMask = 2147483647;
 			files = (
 				7699B88040F8A987B510C191 /* libPods-BeatBridge-BeatBridgeTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A7C16392BDF924E00CF29B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A7C16A22BDF96BF00CF29B2 /* JavaScriptCore.framework in Frameworks */,
+				0A7C16502BDF969B00CF29B2 /* libDoubleConversion.a in Frameworks */,
+				0A7C16522BDF969B00CF29B2 /* libfmt.a in Frameworks */,
+				0A7C16542BDF969B00CF29B2 /* libglog.a in Frameworks */,
+				0A7C16562BDF969B00CF29B2 /* hermes.xcframework in Frameworks */,
+				0A7C16582BDF969B00CF29B2 /* libHMSegmentedControl.a in Frameworks */,
+				0A7C165A2BDF969B00CF29B2 /* liblibevent.a in Frameworks */,
+				0A7C165C2BDF969B00CF29B2 /* liblibwebp.a in Frameworks */,
+				0A7C165E2BDF969B00CF29B2 /* libMMKV.a in Frameworks */,
+				0A7C16602BDF969B00CF29B2 /* libMMKVCore.a in Frameworks */,
+				0A7C16A12BDF969B00CF29B2 /* libPods-BeatBridge.a in Frameworks */,
+				0A7C16622BDF969B00CF29B2 /* libPods-BeatBridge-BeatBridgeTests.a in Frameworks */,
+				0A7C16642BDF969B00CF29B2 /* libRCT-Folly.a in Frameworks */,
+				0A7C16662BDF969B00CF29B2 /* libRCTTypeSafety.a in Frameworks */,
+				0A7C16682BDF969B00CF29B2 /* libReact-bridging.a in Frameworks */,
+				0A7C166A2BDF969B00CF29B2 /* libReact-Codegen.a in Frameworks */,
+				0A7C166C2BDF969B00CF29B2 /* libReact-Core.a in Frameworks */,
+				0A7C166E2BDF969B00CF29B2 /* libReact-CoreModules.a in Frameworks */,
+				0A7C16702BDF969B00CF29B2 /* libReact-cxxreact.a in Frameworks */,
+				0A7C16722BDF969B00CF29B2 /* libReact-hermes.a in Frameworks */,
+				0A7C16742BDF969B00CF29B2 /* libReact-jsi.a in Frameworks */,
+				0A7C16762BDF969B00CF29B2 /* libReact-jsiexecutor.a in Frameworks */,
+				0A7C16782BDF969B00CF29B2 /* libReact-jsinspector.a in Frameworks */,
+				0A7C167A2BDF969B00CF29B2 /* libReact-logger.a in Frameworks */,
+				0A7C167C2BDF969B00CF29B2 /* libreact-native-mmkv.a in Frameworks */,
+				0A7C167E2BDF969B00CF29B2 /* libReact-perflogger.a in Frameworks */,
+				0A7C16802BDF969B00CF29B2 /* libReact-RCTAnimation.a in Frameworks */,
+				0A7C16822BDF969B00CF29B2 /* libReact-RCTBlob.a in Frameworks */,
+				0A7C16842BDF969B00CF29B2 /* libReact-RCTImage.a in Frameworks */,
+				0A7C16862BDF969B00CF29B2 /* libReact-RCTLinking.a in Frameworks */,
+				0A7C16882BDF969B00CF29B2 /* libReact-RCTNetwork.a in Frameworks */,
+				0A7C168A2BDF969B00CF29B2 /* libReact-RCTSettings.a in Frameworks */,
+				0A7C168C2BDF969B00CF29B2 /* libReact-RCTText.a in Frameworks */,
+				0A7C168E2BDF969B00CF29B2 /* libReact-RCTVibration.a in Frameworks */,
+				0A7C16902BDF969B00CF29B2 /* libReactCommon.a in Frameworks */,
+				0A7C16922BDF969B00CF29B2 /* libReactNativeNavigation.a in Frameworks */,
+				0A7C16942BDF969B00CF29B2 /* libRNCClipboard.a in Frameworks */,
+				0A7C16962BDF969B00CF29B2 /* libRNFastImage.a in Frameworks */,
+				0A7C16982BDF969B00CF29B2 /* libRNReanimated.a in Frameworks */,
+				0A7C169A2BDF969B00CF29B2 /* libRNVectorIcons.a in Frameworks */,
+				0A7C169C2BDF969B00CF29B2 /* libSDWebImage.a in Frameworks */,
+				0A7C169E2BDF969B00CF29B2 /* libSDWebImageWebPCoder.a in Frameworks */,
+				0A7C16A02BDF969B00CF29B2 /* libYoga.a in Frameworks */,
+				0A7C163E2BDF924E00CF29B2 /* Messages.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +254,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0A7C163F2BDF924E00CF29B2 /* BeatBridgeMessageExt */ = {
+			isa = PBXGroup;
+			children = (
+				0A7C16402BDF924E00CF29B2 /* MessagesViewController.swift */,
+				0A7C16422BDF924E00CF29B2 /* MainInterface.storyboard */,
+				0A7C16452BDF924F00CF29B2 /* Assets.xcassets */,
+				0A7C16472BDF924F00CF29B2 /* Info.plist */,
+				0A7C16A32BDF973900CF29B2 /* Bridging-Header.h */,
+			);
+			path = BeatBridgeMessageExt;
+			sourceTree = "<group>";
+		};
 		0ABA0E8C2915F31A008AFBC9 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,9 +292,51 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0A7C164F2BDF969B00CF29B2 /* libDoubleConversion.a */,
+				0A7C16512BDF969B00CF29B2 /* libfmt.a */,
+				0A7C16532BDF969B00CF29B2 /* libglog.a */,
+				0A7C16552BDF969B00CF29B2 /* hermes.xcframework */,
+				0A7C16572BDF969B00CF29B2 /* libHMSegmentedControl.a */,
+				0A7C16592BDF969B00CF29B2 /* liblibevent.a */,
+				0A7C165B2BDF969B00CF29B2 /* liblibwebp.a */,
+				0A7C165D2BDF969B00CF29B2 /* libMMKV.a */,
+				0A7C165F2BDF969B00CF29B2 /* libMMKVCore.a */,
+				0A7C16612BDF969B00CF29B2 /* libPods-BeatBridge-BeatBridgeTests.a */,
+				0A7C16632BDF969B00CF29B2 /* libRCT-Folly.a */,
+				0A7C16652BDF969B00CF29B2 /* libRCTTypeSafety.a */,
+				0A7C16672BDF969B00CF29B2 /* libReact-bridging.a */,
+				0A7C16692BDF969B00CF29B2 /* libReact-Codegen.a */,
+				0A7C166B2BDF969B00CF29B2 /* libReact-Core.a */,
+				0A7C166D2BDF969B00CF29B2 /* libReact-CoreModules.a */,
+				0A7C166F2BDF969B00CF29B2 /* libReact-cxxreact.a */,
+				0A7C16712BDF969B00CF29B2 /* libReact-hermes.a */,
+				0A7C16732BDF969B00CF29B2 /* libReact-jsi.a */,
+				0A7C16752BDF969B00CF29B2 /* libReact-jsiexecutor.a */,
+				0A7C16772BDF969B00CF29B2 /* libReact-jsinspector.a */,
+				0A7C16792BDF969B00CF29B2 /* libReact-logger.a */,
+				0A7C167B2BDF969B00CF29B2 /* libreact-native-mmkv.a */,
+				0A7C167D2BDF969B00CF29B2 /* libReact-perflogger.a */,
+				0A7C167F2BDF969B00CF29B2 /* libReact-RCTAnimation.a */,
+				0A7C16812BDF969B00CF29B2 /* libReact-RCTBlob.a */,
+				0A7C16832BDF969B00CF29B2 /* libReact-RCTImage.a */,
+				0A7C16852BDF969B00CF29B2 /* libReact-RCTLinking.a */,
+				0A7C16872BDF969B00CF29B2 /* libReact-RCTNetwork.a */,
+				0A7C16892BDF969B00CF29B2 /* libReact-RCTSettings.a */,
+				0A7C168B2BDF969B00CF29B2 /* libReact-RCTText.a */,
+				0A7C168D2BDF969B00CF29B2 /* libReact-RCTVibration.a */,
+				0A7C168F2BDF969B00CF29B2 /* libReactCommon.a */,
+				0A7C16912BDF969B00CF29B2 /* libReactNativeNavigation.a */,
+				0A7C16932BDF969B00CF29B2 /* libRNCClipboard.a */,
+				0A7C16952BDF969B00CF29B2 /* libRNFastImage.a */,
+				0A7C16972BDF969B00CF29B2 /* libRNReanimated.a */,
+				0A7C16992BDF969B00CF29B2 /* libRNVectorIcons.a */,
+				0A7C169B2BDF969B00CF29B2 /* libSDWebImage.a */,
+				0A7C169D2BDF969B00CF29B2 /* libSDWebImageWebPCoder.a */,
+				0A7C169F2BDF969B00CF29B2 /* libYoga.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-BeatBridge.a */,
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-BeatBridge-BeatBridgeTests.a */,
+				0A7C163D2BDF924E00CF29B2 /* Messages.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -133,6 +355,7 @@
 				13B07FAE1A68108700A75B9A /* BeatBridge */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* BeatBridgeTests */,
+				0A7C163F2BDF924E00CF29B2 /* BeatBridgeMessageExt */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -147,6 +370,7 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* BeatBridge.app */,
 				00E356EE1AD99517003FC87E /* BeatBridgeTests.xctest */,
+				0A7C163C2BDF924E00CF29B2 /* BeatBridgeMessageExt.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +410,24 @@
 			productReference = 00E356EE1AD99517003FC87E /* BeatBridgeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		0A7C163B2BDF924E00CF29B2 /* BeatBridgeMessageExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A7C164E2BDF924F00CF29B2 /* Build configuration list for PBXNativeTarget "BeatBridgeMessageExt" */;
+			buildPhases = (
+				0A7C16382BDF924E00CF29B2 /* Sources */,
+				0A7C16392BDF924E00CF29B2 /* Frameworks */,
+				0A7C163A2BDF924E00CF29B2 /* Resources */,
+				0A7C16A52BDF99E900CF29B2 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BeatBridgeMessageExt;
+			productName = BeatBridgeMessageExt;
+			productReference = 0A7C163C2BDF924E00CF29B2 /* BeatBridgeMessageExt.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
 		13B07F861A680F5B00A75B9A /* BeatBridge */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BeatBridge" */;
@@ -198,10 +440,12 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				0A7C164B2BDF924F00CF29B2 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0A7C16492BDF924F00CF29B2 /* PBXTargetDependency */,
 			);
 			name = BeatBridge;
 			productName = BeatBridge;
@@ -214,11 +458,15 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					0A7C163B2BDF924E00CF29B2 = {
+						CreatedOnToolsVersion = 15.3;
 					};
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
@@ -240,6 +488,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* BeatBridge */,
 				00E356ED1AD99517003FC87E /* BeatBridgeTests */,
+				0A7C163B2BDF924E00CF29B2 /* BeatBridgeMessageExt */,
 			);
 		};
 /* End PBXProject section */
@@ -249,6 +498,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A7C163A2BDF924E00CF29B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A7C16462BDF924F00CF29B2 /* Assets.xcassets in Resources */,
+				0A7C16442BDF924E00CF29B2 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +556,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeatBridge/Pods-BeatBridge-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		0A7C16A52BDF99E900CF29B2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh index.message.js\n";
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -425,6 +700,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0A7C16382BDF924E00CF29B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A7C16412BDF924E00CF29B2 /* MessagesViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13B07F871A680F5B00A75B9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -442,7 +725,23 @@
 			target = 13B07F861A680F5B00A75B9A /* BeatBridge */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
+		0A7C16492BDF924F00CF29B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0A7C163B2BDF924E00CF29B2 /* BeatBridgeMessageExt */;
+			targetProxy = 0A7C16482BDF924F00CF29B2 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0A7C16422BDF924E00CF29B2 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A7C16432BDF924E00CF29B2 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
@@ -496,10 +795,100 @@
 			};
 			name = Release;
 		};
+		0A7C164C2BDF924F00CF29B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = C28KRK9PR3;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeatBridgeMessageExt/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BeatBridgeMessageExt;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trippyadvisor.MusicShare.BeatBridgeMessageExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "BeatBridgeMessageExt/Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0A7C164D2BDF924F00CF29B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = C28KRK9PR3;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeatBridgeMessageExt/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BeatBridgeMessageExt;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trippyadvisor.MusicShare.BeatBridgeMessageExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "BeatBridgeMessageExt/Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-BeatBridge.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -536,6 +925,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-BeatBridge.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -711,6 +1101,15 @@
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
 				00E356F71AD99517003FC87E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0A7C164E2BDF924F00CF29B2 /* Build configuration list for PBXNativeTarget "BeatBridgeMessageExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A7C164C2BDF924F00CF29B2 /* Debug */,
+				0A7C164D2BDF924F00CF29B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
