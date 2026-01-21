@@ -17,36 +17,45 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                ScrollView {
-                    VStack(spacing: 20) {
-                        headerSection
-                        
-                        urlInputSection
-                        
-                        platformSelectionSection
-                        
-                        actionButton
-                        
-                        HistoryView()
-                            .padding(.top, 20)
-                        
-                        Spacer(minLength: 50)
-                    }
-                    .padding()
+            ScrollView {
+                VStack(spacing: 20) {
+                    headerSection
+                    
+                    urlInputSection
+                    
+                    platformSelectionSection
+                    
+                    actionButton
+                    
+                    HistoryView()
+                        .padding(.top, 20)
+                    
+                    Spacer(minLength: 50)
                 }
                 .padding()
                 
-                if isLoading {
-                    Color.black.opacity(0.3)
-                        .ignoresSafeArea()
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                        .scaleEffect(1.5)
-                }
             }
             .navigationTitle("MusicShare")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
+//            ZStack {
+//                ScrollView {
+//                    VStack(spacing: 20) {
+//                        ...
+//
+//                        Spacer(minLength: 50)
+//                    }
+//                    .padding()
+//                }
+//                .padding()
+//                
+//                if isLoading {
+//                    Color.black.opacity(0.3)
+//                        .ignoresSafeArea()
+//                    ProgressView()
+//                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+//                        .scaleEffect(1.5)
+//                }
+//            }
         }
         .sheet(isPresented: $showingPlatformSelector) {
             PlatformSelectorView(selectedPlatform: $selectedPlatform)
@@ -69,12 +78,8 @@ struct HomeView: View {
     
     private var headerSection: some View {
         VStack(spacing: 8) {
-            Image(systemName: "music.note.list")
-                .font(.system(size: 60))
-                .foregroundColor(.blue)
-            
             Text("Music Link Converter")
-                .font(.title2)
+                .font(.title)
                 .fontWeight(.bold)
             
             Text("Convert music links between streaming platforms")
