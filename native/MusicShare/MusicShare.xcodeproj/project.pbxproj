@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A6602B52F2080A800D53CBA /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6602B42F2080A800D53CBA /* Messages.framework */; };
 		0A6602C12F2080AA00D53CBA /* MessagesExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0A6602B22F2080A800D53CBA /* MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0A6602F02F20911F00D53CBA /* MusicShareIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 0A6602EE2F20911F00D53CBA /* MusicShareIcon.icon */; };
 		0A66031A2F20917300D53CBA /* SharedDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6603192F20917300D53CBA /* SharedDataService.swift */; };
 		0A66031B2F20917300D53CBA /* SharedDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6603192F20917300D53CBA /* SharedDataService.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		0A6602082F20638A00D53CBA /* MusicShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A6602B22F2080A800D53CBA /* MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MessagesExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A6602B42F2080A800D53CBA /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		0A6602EE2F20911F00D53CBA /* MusicShareIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = MusicShareIcon.icon; sourceTree = "<group>"; };
 		0A6603192F20917300D53CBA /* SharedDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +99,7 @@
 				0A6602B62F2080A800D53CBA /* MessagesExtension */,
 				0A6602B32F2080A800D53CBA /* Frameworks */,
 				0A6602092F20638A00D53CBA /* Products */,
+				0A6602EE2F20911F00D53CBA /* MusicShareIcon.icon */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A6602F02F20911F00D53CBA /* MusicShareIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +385,7 @@
 				DEVELOPMENT_TEAM = C28KRK9PR3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MusicShare;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -390,8 +395,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vibewrks.MusicShare;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trippyadvisor.MusicShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -414,6 +419,7 @@
 				DEVELOPMENT_TEAM = C28KRK9PR3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MusicShare;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -423,8 +429,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vibewrks.MusicShare;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trippyadvisor.MusicShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -443,18 +449,20 @@
 				CODE_SIGN_ENTITLEMENTS = MessagesExtension/MessagesExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = C28KRK9PR3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MusicShare;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vibewrks.MusicShare.MessagesExtension;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trippyadvisor.MusicShare.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -473,18 +481,20 @@
 				CODE_SIGN_ENTITLEMENTS = MessagesExtension/MessagesExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = C28KRK9PR3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MusicShare;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vibewrks.MusicShare.MessagesExtension;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trippyadvisor.MusicShare.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
