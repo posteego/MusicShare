@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct ResultView: View {
     let songLink: SongLink
@@ -112,6 +113,19 @@ struct ResultView: View {
     
     private var actionButtons: some View {
         VStack(spacing: 12) {
+            // Primary action: Share to Messages
+            Button(action: shareToMessages) {
+                HStack {
+                    Image(systemName: "message.fill")
+                    Text("Share to Messages")
+                }
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.green)
+                .cornerRadius(10)
+            }
+            
             Button(action: copyLink) {
                 HStack {
                     Image(systemName: "doc.on.doc")
@@ -146,6 +160,22 @@ struct ResultView: View {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             showCopyToast = false
+        }
+    }
+    
+    private func shareToMessages() {
+        // Save the link to shared App Group storage for the iMessage extension
+        let metadata = ShareLinkMetadata(
+            title: songLink.songName,
+            artist: songLink.artist,
+            thumbnailUrl: songLink.thumbnail,
+            platformName: songLink.targetPlatform.displayName
+        )
+        SharedDataService.shared.savePendingShareLink(songLink.convertedURL, metadata: metadata)
+        
+        // Open Messages app - the iMessage extension will read from shared storage
+        if let messagesURL = URL(string: "sms:") {
+            UIApplication.shared.open(messagesURL)
         }
     }
 }
